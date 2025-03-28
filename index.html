@@ -1,83 +1,159 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Kruize Autotune - Autonomous Performance Tuning for Kubernetes</title>
-    <link rel="stylesheet" href="./style.css">
-    <script src="script.js" defer></script>
+    <title>Kruize</title>
+    <link rel="stylesheet" href="style.css">
 </head>
+
 <body>
-    <header>
-        <div class="container">
-            <h1>Kruize Autotune</h1>
-            <p>Autonomous Performance Tuning for Kubernetes</p>
-            <a href="#get-started" class="cta-button">Get Started</a>
+    <div class="header">
+        <img src="assets/kruize-icon.png" alt="Kruize Logo" class="logo">
+        <div class="nav">
+            <a href="#">Home</a>
+            <a href="#">Features</a>
+            <a href="#">Pricing</a>
+            <a href="#">Docs</a>
+            <a href="#">Contact</a>
+            <div class="icons">
+                <img src="assets/github-icon.png" alt="GitHub">
+                <img src="assets/slack-icon.png" alt="Slack">
+            </div>
         </div>
-    </header>
+    </div>
 
-    <section id="what-is">
-        <div class="container">
-            <h2>What is Kruize Autotune?</h2>
-            <p>Kruize Autotune is an Autonomous Performance Tuning Tool for Kubernetes. It accepts a user-provided "SLO" goal to optimize application performance. By leveraging Prometheus, Autotune identifies the various "layers" of an application and matches tunables from those layers to the user-defined SLO. It then conducts experiments using a hyperparameter optimization framework to determine the most optimal values for the identified tunables, enhancing the application's performance.</p>
-            <p>Autotune can handle a large set of tunables and continuously optimizes the user-provided SLO in incremental steps. Therefore, it does not necessarily have a "best" value for a set of tunables, but rather a "better" one than what is currently deployed.</p>
+    <div class="community-call">
+        <u>Join our community call to explore more and interact with the Kruize team!</u>
+    </div>
+
+    <div class="hero">
+        <div class="hero-text">
+            <h1>Optimize Your Kubernetes Costs</h1>
+            <p>Monitor and reduce your Kubernetes cloud spending with real-time insights.</p>
+            <button class="cta-button" onclick="alert('Get Started!')">Get Started</button>
         </div>
-    </section>
-
-    <section id="motivation">
-        <div class="container">
-            <h2>Motivation</h2>
-            <p>Docker and Kubernetes have evolved into essential components of cloud infrastructure. As the industry shifts towards containerization and Kubernetes readiness, new challenges arise that are unique to this dynamic environment.</p>
-            <p>Consider a Flight Booking Application running in a Kubernetes cluster. If users experience slow response times during booking, IT admins face the challenge of optimizing performance. Traditional fixes often fall short, as runtime optimization requires deep expertise and can be complex.</p>
+        <div class="hero-image">
+            <img src="kruize-ui-screenshot.png" alt="Kruize UI Screenshot">
         </div>
-    </section>
+    </div>
 
-    <section id="how-to-start">
-        <div class="container">
-            <h2>How Do I Start?</h2>
-            <p>Autotune captures your performance tuning needs comprehensively and runs experiments to provide recommendations that help achieve your SLO goals. To get started, check out the <a href="https://github.com/kruize/kruize-demos" target="_blank">kruize-demos repo</a> for a quick start!</p>
+    <div class="features">
+        <h1 class="feature-heading">Kruize Features</h1>
+
+        <div class="feature">
+            <img src="gpu.png" alt="GPU Optimization">
+            <div class="feature-text">
+                <h2>Right-sizing</h2>
+                <p>Kruize can provide right-sizing recommendations for containers and namespaces.
+                    Container right sizing includes CPU, Memory and Nvidia Accelerators.
+                    Namespace recommendations are in the form of limits for CPU and quota for memory. </p>
+            </div>
         </div>
-    </section>
-
-    <section id="installation">
-        <div class="container">
-            <h2>Installation</h2>
-            <p>For detailed installation instructions, please refer to the <a href="installation.html">Autotune Installation</a> guide.</p>
+        <div class="feature">
+            <img src="box-plots.png" alt="Box Plots">
+            <div class="feature-text">
+                <h2>Box Plot Recommendation support</h2>
+                <p>Visualize cost distributions with detailed statistical insights.
+                    Box Plots provides actual usage summary for the observed duration.</p>
+            </div>
         </div>
-    </section>
-
-    <section id="api">
-        <div class="container">
-            <h2>REST API</h2>
-            <p>For more information on the Autotune REST API, please see the <a href="api.html">API README</a>.</p>
+        <div class="feature">
+            <img src="container-nsp.png" alt="Container NSP">
+            <div class="feature-text">
+                <h2>GPU Recommendations</h2>
+                <p>MIG Partitioning Recommendations are available from Kruize v0.1 onwards</p>
+            </div>
         </div>
-    </section>
-
-    <section id="architecture">
-        <div class="container">
-            <h2>Autotune Architecture</h2>
-            <p>Learn more about the architecture of Autotune in the <a href="architecture.html">Autotune Architecture</a> documentation.</p>
+        <div class="feature">
+            <img src="instaslice.png" alt="Instaslice">
+            <div class="feature-text">
+                <h2>Instaslice</h2>
+                <p>Kruize uses Instaslice under the covers to apply MIG slicing recommendations for Nvidia accelerators.
+                </p>
+            </div>
         </div>
-    </section>
-
-    <section id="contributing">
-        <div class="container">
-            <h2>Contributing</h2>
-            <p>We welcome your contributions! For more details, please see <a href="CONTRIBUTING.md">CONTRIBUTING.md</a>.</p>
+        <div class="feature">
+            <img src="vpa.png" alt="Vertical Pod Autoscaler">
+            <div class="feature-text">
+                <h2>Vertical Pod Autoscaler</h2>
+                <p>Kruize uses VPA under the covers to apply CPU and memory right sizing recommendations.
+                    Kruize supports two modes “auto” and “recreate” that correspond to the modes of VPA with the same
+                    names.</p>
+            </div>
         </div>
-    </section>
+    </div>
 
-    <section id="license">
-        <div class="container">
-            <h2>License</h2>
-            <p>This project is licensed under the Apache License 2.0. See <a href="LICENSE">LICENSE</a> for more details.</p>
+
+
+    <div class="env-wrapper">
+        <h2 style="text-align:center;">Runs on Any of These Kubernetes Environments</h2>
+        <div class="environment">
+            <div class="env-box">
+                <img src="assets/aws.png" alt="GitHub">
+            </div>
+            <div class="env-box">
+                <img src="assets/k8s-image.png " alt="GitHub">
+            </div>
+            <div class="env-box">
+                On-Premises</div>
+
         </div>
-    </section>
+    </div>
 
-    <footer>
-        <div class="container">
-            <p>&copy; 2023 Kruize Autotune. All rights reserved.</p>
+
+
+    <div class="getting-started-wrapper">
+        <h2 style="text-align:center;">Get Up and Running in 5 Minutes</h2>
+
+        <div class="getting-started">
+
+            <div class="step-box">1. Schedule a demo</div>
+            <div class="step-box">2. Config your Costs</div>
+            <div class="step-box">3. Start Optimizing!</div>
+        </div>
+    </div>
+    <div class="community-call"></div>
+
+    <footer class="footer">
+        <!-- Left Section -->
+        <div class="footer-left">
+            <img class="kruize-footer" src="assets/kruize-vertical.png" alt="Kruize Logo">
+            <div class="gap"></div>
+            <p>Copyright IBM Corp. 2025. All rights reserved.<br>Designed & built in India.</p>
+            <p>Terms| Privacy Policy</p>
+        </div>
+
+        <!-- Center Section -->
+        <div class="footer-center">
+            <ul>
+                <li><a href="#">Features</a></li>
+                <li><a href="#">Pricing</a></li>
+                <li><a href="#">About</a></li>
+                <li><a href="#">We're Hiring!</a></li>
+            </ul>
+            <ul>
+                <li><a href="#">Blog</a></li>
+                <li><a href="#">Docs</a></li>
+                <li><a href="#">Tutorials</a></li>
+                <li><a href="#">Partners</a></li>
+                <li><a href="#">Status</a></li>
+            </ul>
+        </div>
+
+        <!-- Right Section -->
+        <div class="footer-right">
+            <a href="mailto:kruize@redhat.com"><u>team@kruize.com</u></a>
+            <div class="social-icons">
+                <a href="#"><img src="assets/github-icon.png" alt="GitHub"></a>
+                <a href="#"><img src="assets/linkedin-icon.png" alt="LinkedIn"></a>
+                <a href="#"><img src="assets/yt-icon.png" alt="YouTube"></a>
+                <a href="#"><img src="assets/slack-black.png" alt="Slack"></a>
+            </div>
         </div>
     </footer>
+
 </body>
+
 </html>
