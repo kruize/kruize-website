@@ -1,0 +1,186 @@
+# This is your sidebar TOC. The sidebar code loops through sections here and provides the appropriate formatting.
+
+entries:
+- title: sidebar
+  product: Kruize Documentation
+  version: 0.1
+  folders:
+
+  - title:
+    output: pdf
+    type: frontmatter
+    folderitems:
+    - title:
+      url: /titlepage.html
+      output: pdf
+      type: frontmatter
+    - title:
+      url: /tocpage.html
+      output: pdf
+      type: frontmatter
+
+  - title: Overview
+    output: web, pdf
+    folderitems:
+
+    - title: Introduction to Kruize
+      url: /index.html
+      output: web, pdf
+      type: homepage
+
+    - title: Getting Started
+      url: /getting_started.html
+      output: web, pdf
+
+    - title: Experiment Modes 
+      url: /experiment_modes.html
+      output: web, pdf
+
+    - title: Performance Profiles
+      url: /performance_profiles.html
+      output: web, pdf
+
+    - title: Support
+      url: /support.html
+      output: web, pdf
+
+  - title: Release Notes
+    output: web, pdf
+    folderitems:
+
+    - title: Autotune Release Notes
+      url: /autotune_release_notes.html
+      output: web, pdf
+
+  - title: Installation
+    output: web, pdf
+    folderitems:
+
+    - title: Remote Monitoring Mode
+      url: /rm_installation.html
+      output: web, pdf
+
+    - title: Local Monitoring Mode
+      url: /lm_installation.html
+      output: web, pdf
+
+
+  - title: Local Monitoring APIs
+    output: web, pdf
+
+    folderitems:
+    - title: Create Experiment API
+      url: /lm_create_exp.html
+      output: web, pdf
+
+    - title: List Experiments API
+      url: /lm_list_exp.html
+      output: web, pdf
+
+    - title: Generate Recommendations API
+      url: /mydoc_lists.html
+      output: web, pdf
+
+    - title: List Recommendations API
+      url: /mydoc_conditional_logic.html
+      output: web, pdf
+
+    - title: Create Performance Profile API
+      url: /mydoc_content_reuse.html
+      output: web, pdf
+
+    - title: Others
+      url: /mydoc_collections.html
+      output: web, pdf
+
+  - title: Remote Monitoring APIs
+    output: web, pdf
+
+    folderitems:
+    - title: Create Experiment API
+      url: /mydoc_pages.html
+      output: web, pdf
+
+    - title: List Experiments API
+      url: /mydoc_posts.html
+      output: web, pdf
+
+    - title: Generate Recommendations API
+      url: /mydoc_lists.html
+      output: web, pdf
+
+    - title: List Recommendations API
+      url: /mydoc_conditional_logic.html
+      output: web, pdf
+
+    - title: Create Metric Profile API
+      url: /mydoc_content_reuse.html
+      output: web, pdf
+
+    - title: Update Results API
+      url: /mydoc_content_reuse.html
+      output: web, pdf
+
+    - title: Others
+      url: /mydoc_collections.html
+      output: web, pdf
+
+  - title: Auto-scaling APIs
+    output: web, pdf
+
+    folderitems:
+    - title: Create Experiment API
+      url: /mydoc_pages.html
+      output: web, pdf
+
+    - title: List Experiments API
+      url: /mydoc_posts.html
+      output: web, pdf
+
+    - title: List Recommendations API
+      url: /mydoc_conditional_logic.html
+      output: web, pdf
+
+  - title: Use Cases
+    output: web, pdf
+
+    folderitems:
+    - title: Cost Optimisation
+      url: /mydoc_sidebar_navigation.html
+      output: web, pdf
+
+    - title: Performance Optimisation
+      url: /mydoc_yaml_tutorial.html
+      output: web, pdf
+
+    - title: Namespace Monitoring
+      url: /mydoc_tags.html
+      output: web, pdf
+
+    - title: GPU Recommendations 
+      url: /mydoc_series.html
+      output: web, pdf
+
+    - title: Autoscaling
+      url: /mydoc_series.html
+      output: web, pdf
+
+
+  - title: Troubleshooting
+    output: web, pdf
+
+    folderitems:
+    - title: Troubleshooting
+      url: /mydoc_troubleshooting.html
+      output: web, pdf
+
+  - title: Kruize Blogs
+    output: web, pdf
+
+    folderitems:
+    - title: Optimizig Namespace Quotas With Kruize
+      url: /mydoc_troubleshooting.html
+      output: web, pdf
+
+
+# Copyright 2021 Google LLC

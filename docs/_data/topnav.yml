@@ -1,0 +1,21 @@
+## Topnav single links
+## if you want to list an external url, use external_url instead of url. the theme will apply a different link base.
+topnav:
+- title: Topnav
+  items:
+    - title: GitHub
+      external_url: https://github.com/kruize/autotune
+
+#Topnav dropdowns
+topnav_dropdowns:
+- title: Topnav dropdowns
+  folders:
+    - title: Quick Links
+      folderitems:
+        - title: Kruize Slack 
+          external_url: https://join.slack.com/t/kruizeworkspace/shared_invite/zt-31jrkfcw3-zPCIHrpf1Az33TCSSeLCQQ
+        - title: Website
+          external_url: https://kruize.io
+
+
+# Copyright 2021 Google LLC
