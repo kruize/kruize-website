@@ -15,7 +15,7 @@
             <a href="#">Home</a>
             <a href="#">Features</a>
             <a href="#">Pricing</a>
-            <a href="#">Docs</a>
+            <a href="docs">Docs</a>
             <a href="#">Contact</a>
             <div class="icons">
                 <img src="assets/github-icon.png" alt="GitHub">
@@ -35,15 +35,20 @@
             <button class="cta-button" onclick="alert('Get Started!')">Get Started</button>
         </div>
         <div class="hero-image">
-            <img src="kruize-ui-screenshot.png" alt="Kruize UI Screenshot">
+            <div style="position: relative; padding-bottom: 56.25%; height: 0;">
+                <iframe src="https://www.loom.com/embed/d7ace86fddad43918f777835f70b743f?sid=e4b28f14-9c46-490a-a07d-84ca73a59b21" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen style="position: absolute; top: 0; left: 0; width: 100%; height: 100%;">
+                </iframe>
+            </div>
         </div>
+
+        <!-- <div style="position: relative; padding-bottom: 56.25%; height: 0;"><iframe src="https://www.loom.com/embed/d7ace86fddad43918f777835f70b743f?sid=e4b28f14-9c46-490a-a07d-84ca73a59b21" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen style="position: absolute; top: 0; left: 0; width: 100%; height: 100%;"></iframe></div> -->
     </div>
 
     <div class="features">
         <h1 class="feature-heading">Kruize Features</h1>
 
         <div class="feature">
-            <img src="gpu.png" alt="GPU Optimization">
+            <img src="assets/recommendations.png" alt="GPU Optimization" class="img-large">
             <div class="feature-text">
                 <h2>Right-sizing</h2>
                 <p>Kruize can provide right-sizing recommendations for containers and namespaces.
@@ -52,7 +57,7 @@
             </div>
         </div>
         <div class="feature">
-            <img src="box-plots.png" alt="Box Plots">
+            <img src="assets/box_plot.png" alt="Box Plots" class="img-large">
             <div class="feature-text">
                 <h2>Box Plot Recommendation support</h2>
                 <p>Visualize cost distributions with detailed statistical insights.
@@ -60,14 +65,14 @@
             </div>
         </div>
         <div class="feature">
-            <img src="container-nsp.png" alt="Container NSP">
+            <img src="assets/gpu_recommendations.png" alt="Container NSP" >
             <div class="feature-text">
                 <h2>GPU Recommendations</h2>
                 <p>MIG Partitioning Recommendations are available from Kruize v0.1 onwards</p>
             </div>
         </div>
         <div class="feature">
-            <img src="instaslice.png" alt="Instaslice">
+            <img src="assets/instaslice_img.png" alt="Instaslice" >
             <div class="feature-text">
                 <h2>Instaslice</h2>
                 <p>Kruize uses Instaslice under the covers to apply MIG slicing recommendations for Nvidia accelerators.
@@ -75,7 +80,7 @@
             </div>
         </div>
         <div class="feature">
-            <img src="vpa.png" alt="Vertical Pod Autoscaler">
+            <img src="assets/vpa_img.png" alt="Vertical Pod Autoscaler">
             <div class="feature-text">
                 <h2>Vertical Pod Autoscaler</h2>
                 <p>Kruize uses VPA under the covers to apply CPU and memory right sizing recommendations.
