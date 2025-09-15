@@ -103,10 +103,18 @@ body {
     transform: scale(1.05);
 }
 
-.hero-image {
+/* .hero-image {
     width: 50%;
     display: flex;
     justify-content: center;
+} */
+.hero-image {
+  width: 90%; /* Set the width of the hero section */
+  max-width: 900px; /* Prevent it from becoming too large on wide screens */
+  margin: 40px auto; /* Center the hero section on the page */
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1); /* Add a subtle shadow */
+  border-radius: 8px; /* Optional: round the corners */
+  overflow: hidden; /* Ensures the iframe corners are also rounded */
 }
 
 .hero-image img {
@@ -119,10 +127,11 @@ body {
 .features {
     display: flex;
     justify-content: center;
+    /* align-items: center; */
     flex-wrap: wrap;
     gap: 20px;
     flex-direction: column;
-    padding: 50px 40px;
+    padding: 50px 200px 40px 100px;
     background: white;
 
 }
@@ -167,6 +176,11 @@ body {
     border-radius: 5px;
 }
 
+.feature .img-large {
+    width: 70%;           /* A larger percentage */
+    max-width: 650px;     /* A larger maximum width */
+}
+
 .feature-text {
     width: 50%;
     padding: 20px;
@@ -179,6 +193,7 @@ body {
 
 .feature-text p {
     font-size: 18px;
+    margin-top: 0%;
     color: #333;
 }
 
