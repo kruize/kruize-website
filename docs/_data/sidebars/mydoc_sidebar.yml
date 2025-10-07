@@ -78,7 +78,7 @@ entries:
       output: web, pdf
 
     - title: Generate Recommendations API
-      url: /mydoc_lists.html
+      url: /lm_generate_recommendations.html
       output: web, pdf
 
     - title: List Recommendations API
