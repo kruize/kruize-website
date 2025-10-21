@@ -182,8 +182,12 @@ entries:
     - title: All Blogs
       url: /kruize_blogs.html
       output: web, pdf
+
+    - title: How Kruize optimizes OpenShift workloads
+      external_url: https://developers.redhat.com/articles/2025/06/25/how-kruize-optimizes-openshift-workloads
+      output: web, pdf
       
-    - title: Improving Application Performance with Kruize
+    - title: Hyperparameter Optimisation with Ray Tune
       external_url: https://developers.redhat.com/blog/2024/08/16/hyperparameter-optimisation-ray-tune
       output: web, pdf
       
