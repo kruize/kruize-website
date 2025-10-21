@@ -176,11 +176,25 @@ entries:
 
   - title: Kruize Blogs
     output: web, pdf
+    url: /kruize_blogs.html
 
     folderitems:
-    - title: Optimizig Namespace Quotas With Kruize
-      url: /mydoc_troubleshooting.html
+    - title: All Blogs
+      url: /kruize_blogs.html
       output: web, pdf
+      
+    - title: Improving Application Performance with Kruize
+      external_url: https://developers.redhat.com/blog/2024/08/16/hyperparameter-optimisation-ray-tune
+      output: web, pdf
+      
+    - title: Deploying LLaMa Stack on OpenShift
+      external_url: https://menghanibhanvi.medium.com/a-step-by-step-guide-to-deploying-llama-stack-server-on-openshift-34d8c4214a6f?source=friends_link&sk=121902c7e8e51842bb7420696afaf8c5
+      output: web, pdf
+
+    - title: Design Thinking for User Experience
+      external_url: https://medium.com/@menghanibhanvi/user-case-and-design-possibilities-thinking-through-avatar-icon-6916a8a25851
+      output: web, pdf
+  
 
 
 # Copyright 2021 Google LLC
