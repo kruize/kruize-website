@@ -98,31 +98,27 @@ entries:
 
     folderitems:
     - title: Create Experiment API
-      url: /mydoc_pages.html
+      url: /rm_create_experiment.html
       output: web, pdf
 
     - title: List Experiments API
-      url: /mydoc_posts.html
+      url: /rm_list_experiments.html
       output: web, pdf
 
     - title: Generate Recommendations API
-      url: /mydoc_lists.html
+      url: /rm_generate_recommendations.html
       output: web, pdf
 
     - title: List Recommendations API
-      url: /mydoc_conditional_logic.html
+      url: /rm_list_recommendations.html
       output: web, pdf
 
     - title: Create Metric Profile API
-      url: /mydoc_content_reuse.html
+      url: /rm_create_metric_profile.html
       output: web, pdf
 
     - title: Update Results API
-      url: /mydoc_content_reuse.html
-      output: web, pdf
-
-    - title: Others
-      url: /mydoc_collections.html
+      url: /rm_update_results.html
       output: web, pdf
 
   - title: Auto-scaling APIs

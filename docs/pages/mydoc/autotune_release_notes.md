@@ -7,7 +7,7 @@ folder: mydoc
 
 ## Kruize Version 0.4
 
-You can get it from [quay.io/kruize/autotune_operator:0.4](https://quay.io/kruize/autotune_operator:0.4) or [docker.io/kruize/autotune_operator:0.4](https://docker.io/kruize/autotune_operator:0.4)
+You can get it from [quay.io/kruize/autotune_operator:0.4](https://quay.io/kruize/autotune_operator:0.4)
 Branch: master, Tag: v0.4
 Commit id: `58b8bf8c2feb9b5ca1719a4f7d11faf41b2fea47`
 
