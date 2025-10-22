@@ -1,0 +1,190 @@
+
+[
+
+{
+"title": "Autotune Release Notes",
+"tags": "",
+"keywords": "",
+"url": "autotune_release_notes.html",
+"summary": ""
+}
+,
+
+{
+"title": "Supported Experiment Modes",
+"tags": "",
+"keywords": "",
+"url": "experiment_modes.html",
+"summary": ""
+}
+,
+
+{
+"title": "Getting Started",
+"tags": "",
+"keywords": "",
+"url": "getting_started.html",
+"summary": ""
+}
+,
+
+{
+"title": "Kruize Autotune",
+"tags": "",
+"keywords": "sample homepage",
+"url": "index.html",
+"summary": "These brief instructions will help you get started quickly with the kRUIZE."
+}
+,
+
+{
+"title": "Create Experiment API",
+"tags": "",
+"keywords": "",
+"url": "lm_create_exp.html",
+"summary": ""
+}
+,
+
+{
+"title": "Create Experiment API",
+"tags": "",
+"keywords": "",
+"url": "lm_create_performance_profile.html",
+"summary": ""
+}
+,
+
+{
+"title": "Generate Recommendations API",
+"tags": "",
+"keywords": "",
+"url": "lm_generate_recommendations.html",
+"summary": ""
+}
+,
+
+{
+"title": "Local Monitoring Installation For Kruize",
+"tags": "",
+"keywords": "",
+"url": "lm_installation.html",
+"summary": ""
+}
+,
+
+{
+"title": "List Experiments API",
+"tags": "",
+"keywords": "",
+"url": "lm_list_exp.html",
+"summary": ""
+}
+,
+
+{
+"title": "Performance Profiles",
+"tags": "",
+"keywords": "",
+"url": "performance_profiles.html",
+"summary": ""
+}
+,
+
+{
+"title": "Create Experiment",
+"tags": "",
+"keywords": "",
+"url": "rm_create_experiment.html",
+"summary": ""
+}
+,
+
+{
+"title": "Create Metric Profile",
+"tags": "",
+"keywords": "",
+"url": "rm_create_metric_profile.html",
+"summary": ""
+}
+,
+
+{
+"title": "Generate Recommendations API",
+"tags": "",
+"keywords": "",
+"url": "rm_generate_recommendations.html",
+"summary": ""
+}
+,
+
+{
+"title": "Remote Monitoring Installation For Kruize",
+"tags": "",
+"keywords": "",
+"url": "rm_installation.html",
+"summary": ""
+}
+,
+
+{
+"title": "List Recommendations API",
+"tags": "",
+"keywords": "",
+"url": "rm_list_recommendations.html",
+"summary": ""
+}
+,
+
+{
+"title": "Update Results API",
+"tags": "",
+"keywords": "",
+"url": "rm_update_results.html",
+"summary": ""
+}
+,
+
+{
+"title": "Support",
+"tags": "",
+"keywords": "",
+"url": "support.html",
+"summary": ""
+}
+,
+
+
+
+
+{
+"title": "Sample post",
+"tags": "newsgetting_started",
+"keywords": "",
+"url": "samplepost.html",
+"summary": "This is some summary frontmatter for my sample post."
+}
+,
+
+
+{
+"title": "Welcome to Jekyll!",
+"tags": "news",
+"keywords": "",
+"url": "myupdate.html",
+"summary": ""
+}
+,
+
+
+{
+"title": "Test post from last year",
+"tags": "news",
+"keywords": "",
+"url": "test-post-from-last-year.html",
+"summary": ""
+}
+
+
+
+]
