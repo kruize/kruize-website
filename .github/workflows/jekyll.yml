@@ -25,7 +25,7 @@ jobs:
       - name: Setup Ruby
         uses: ruby/setup-ruby@v1
         with:
-          ruby-version: '3.1'
+          ruby-version: '3.2'
           bundler-cache: true 
 
       - name: Install Jekyll Dependencies
@@ -47,14 +47,15 @@ jobs:
           cp index.html public/
           cp style.css public/  # Copy CSS to root
           cp -r assets public/   # Copy assets folder to root
-        
 
       - name: Upload GitHub Pages Artifact
+        if: github.actor != 'nektos/act'
         uses: actions/upload-pages-artifact@v3
         with:
           path: public  # Upload everything in public/
 
   deploy:
+    if: github.actor != 'nektos/act'
     environment:
       name: github-pages
       url: ${{ steps.deployment.outputs.page_url }}
