@@ -56,6 +56,12 @@
   
   
   <url>
+    <loc>http://localhost:4000/lm_create_metric_profile.html</loc>
+  </url>
+  
+  
+  
+  <url>
     <loc>http://localhost:4000/lm_create_performance_profile.html</loc>
   </url>
   
@@ -81,42 +87,6 @@
   
   <url>
     <loc>http://localhost:4000/performance_profiles.html</loc>
-  </url>
-  
-  
-  
-  <url>
-    <loc>http://localhost:4000/rm_create_experiment.html</loc>
-  </url>
-  
-  
-  
-  <url>
-    <loc>http://localhost:4000/rm_create_metric_profile.html</loc>
-  </url>
-  
-  
-  
-  <url>
-    <loc>http://localhost:4000/rm_generate_recommendations.html</loc>
-  </url>
-  
-  
-  
-  <url>
-    <loc>http://localhost:4000/rm_installation.html</loc>
-  </url>
-  
-  
-  
-  <url>
-    <loc>http://localhost:4000/rm_list_recommendations.html</loc>
-  </url>
-  
-  
-  
-  <url>
-    <loc>http://localhost:4000/rm_update_results.html</loc>
   </url>
   
   
@@ -152,6 +122,12 @@
   
   
   
+  
+  
+  
+  <url>
+    <loc>http://localhost:4000/troubleshooting.html</loc>
+  </url>
   
   
 </urlset>

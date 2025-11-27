@@ -56,10 +56,6 @@ entries:
     output: web, pdf
     folderitems:
 
-    - title: Remote Monitoring Mode
-      url: /rm_installation.html
-      output: web, pdf
-
     - title: Local Monitoring Mode
       url: /lm_installation.html
       output: web, pdf
@@ -81,93 +77,16 @@ entries:
       url: /lm_generate_recommendations.html
       output: web, pdf
 
-    - title: List Recommendations API
-      url: /mydoc_conditional_logic.html
-      output: web, pdf
-
-    - title: Create Performance Profile API
-      url: /mydoc_content_reuse.html
-      output: web, pdf
-
-    - title: Others
-      url: /mydoc_collections.html
-      output: web, pdf
-
-  - title: Remote Monitoring APIs
-    output: web, pdf
-
-    folderitems:
-    - title: Create Experiment API
-      url: /rm_create_experiment.html
-      output: web, pdf
-
-    - title: List Experiments API
-      url: /rm_list_experiments.html
-      output: web, pdf
-
-    - title: Generate Recommendations API
-      url: /rm_generate_recommendations.html
-      output: web, pdf
-
-    - title: List Recommendations API
-      url: /rm_list_recommendations.html
-      output: web, pdf
-
     - title: Create Metric Profile API
-      url: /rm_create_metric_profile.html
+      url: /lm_create_metric_profile.html
       output: web, pdf
-
-    - title: Update Results API
-      url: /rm_update_results.html
-      output: web, pdf
-
-  - title: Auto-scaling APIs
-    output: web, pdf
-
-    folderitems:
-    - title: Create Experiment API
-      url: /mydoc_pages.html
-      output: web, pdf
-
-    - title: List Experiments API
-      url: /mydoc_posts.html
-      output: web, pdf
-
-    - title: List Recommendations API
-      url: /mydoc_conditional_logic.html
-      output: web, pdf
-
-  - title: Use Cases
-    output: web, pdf
-
-    folderitems:
-    - title: Cost Optimisation
-      url: /mydoc_sidebar_navigation.html
-      output: web, pdf
-
-    - title: Performance Optimisation
-      url: /mydoc_yaml_tutorial.html
-      output: web, pdf
-
-    - title: Namespace Monitoring
-      url: /mydoc_tags.html
-      output: web, pdf
-
-    - title: GPU Recommendations 
-      url: /mydoc_series.html
-      output: web, pdf
-
-    - title: Autoscaling
-      url: /mydoc_series.html
-      output: web, pdf
-
 
   - title: Troubleshooting
     output: web, pdf
 
     folderitems:
     - title: Troubleshooting
-      url: /mydoc_troubleshooting.html
+      url: /troubleshooting.html
       output: web, pdf
 
   - title: Kruize Blogs

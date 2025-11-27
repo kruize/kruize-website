@@ -1,158 +1,173 @@
 ---
-title: Create Experiment API
+title: Create Performance Profile
 sidebar: mydoc_sidebar
 permalink: lm_create_performance_profile.html
 folder: mydoc
 ---
 
-## Create Experiment API
+# Create Performance Profile
 
-This is quick guide instructions to create experiments using input JSON as follows. 
+Client will invoke the Kruize createPerformanceProfile API for each deployment. Documentation still in progress stay
+tuned.
 
-**Request**
-`POST /createExperiment`
+# Attributes
 
-`curl -H 'Accept: application/json' -X POST --data 'copy paste below JSON' http://<URL>:<PORT>/createExperiment`
+- **name** \
+  A unique string name for identifying each performance profile.
+- **profile_version** \
+  a double value specifying the current version of the profile.
+- **slo** \
+  Service Level Objective containing the _direction_, _objective_function_ and _function_variables_
+  - **slo_class** \
+    a standard slo "bucket" defined by Kruize. Can be "_resource_usage_", "_throughput_" or "_response_time_"
+  - **direction** \
+    based on the slo_class, it can be '_maximize_' or '_minimize_'
+  - **objective_function** \
+    Define the performance objective here.
+    - **function_type** \
+      can be specified as '_source_' (a java file) or as an '_expression_'(algebraic). If it's an expression, it needs to defined below.
+    - **expression** \
+      an algebraic expression that details the calculation using function variables. Only valid if the "_function_type_" is "expression"
+  - **function_variables** \
+    Define the variables used in the _objective_function_
+    - **name** \
+      name of the variable
+    - **datasource** \
+      datasource of the query
+    - **value_type** \
+      can be double or integer
+    - **query** \
+      one of the query or _aggregation_functions_ is mandatory. Both can be present.
+    - **kubernetes_object** \
+      k8s object that this query is tied to: "_deployment_", "_pod_" or "_container_"
+    - **aggregation_functions** \
+      aggregate functions associated with this variable
+      - **function** \
+        can be '_avg_', '_sum_', '_min_', '_max_'
+      - **query** \
+        corresponding query 
+      - **versions** \
+        Any specific versions that this query is tied to 
+      
+    
 
+# Response
 
+* Success
 
-### Example Request for datasource - `prometheus-1`
-
-**Example Request**
-
-```json
-[
-  {
-    "version": "v2.0",
-    "experiment_name": "default|default|deployment|tfb-qrh-deployment",
-    "cluster_name": "default",
-    "performance_profile": "resource-optimization-openshift",
-    "mode": "monitor",
-    "target_cluster": "local",
-    "kubernetes_objects": [
-      {
-        "type": "deployment",
-        "name": "tfb-qrh-deployment",
-        "namespace": "default",
-        "containers": [
-          {
-            "container_image_name": "kruize/tfb-db:1.15",
-            "container_name": "tfb-server-0"
-          },
-          {
-            "container_image_name": "kruize/tfb-qrh:1.13.2.F_et17",
-            "container_name": "tfb-server-1"
-          }
-        ]
-      }
-    ],
-    "trial_settings": {
-      "measurement_duration": "15min"
-    },
-    "recommendation_settings": {
-      "threshold": "0.1"
-    },
-    "datasource": "prometheus-1"
-  }
-]
 ```
-
-
-### Example Request with `experiment_type` field
-
-The `experiment_type` field in the JSON is optional and can be used to
-indicate whether the experiment is of type `namespace` or `container`.
-If no experiment type is specified, it will default to `container`.
-
-
-### Example Request with experiment_type - `namespace`
-
-The `experiment_type` field in the JSON is optional and can be used to 
-indicate whether the experiment is of type `namespace` or `container`. 
-If no experiment type is specified, it will default to `container`.
-
-**EXAMPLE REQUEST**
-
-```json
-[{
-  "version": "v2.0",
-  "experiment_name": "default|namespace-demo",
-  "cluster_name": "default",
-  "performance_profile": "resource-optimization-local-monitoring",
-  "mode": "monitor",
-  "target_cluster": "local",
-  "datasource": "prometheus-1",
-  "experiment_type": "namespace",
-  "kubernetes_objects": [
-    {
-        "namespaces": {
-            "namespace_name": "test-multiple-import"
-      }
-    }
-  ],
-  "trial_settings": {
-    "measurement_duration": "15min"
-  },
-  "recommendation_settings": {
-    "threshold": "0.1"
-  }
-}]
-```
-
-
-### Example Request with experiment_type - `container`
-
-**EXAMPLE REQUEST**
-
-```json
-[
-  {
-    "version": "v2.0",
-    "experiment_name": "default|default|deployment|tfb-qrh-deployment",
-    "cluster_name": "default",
-    "performance_profile": "resource-optimization-openshift",
-    "mode": "monitor",
-    "target_cluster": "local",
-    "experiment_type": "container",
-    "kubernetes_objects": [
-      {
-        "type": "deployment",
-        "name": "tfb-qrh-deployment",
-        "namespace": "default",
-        "containers": [
-          {
-            "container_image_name": "kruize/tfb-db:1.15",
-            "container_name": "tfb-server-0"
-          },
-          {
-            "container_image_name": "kruize/tfb-qrh:1.13.2.F_et17",
-            "container_name": "tfb-server-1"
-          }
-        ]
-      }
-    ],
-    "trial_settings": {
-      "measurement_duration": "15min"
-    },
-    "recommendation_settings": {
-      "threshold": "0.1"
-    },
-    "datasource": "prometheus-1"
-  }
-]
-```
-
-
-**Example Response**
-
-```json
 {
-  "message": "Experiment registered successfully with Autotune. View registered experiments at /listExperiments",
-  "httpcode": 201,
-  "documentationLink": "",
-  "status": "SUCCESS"
+    "message": "Performance Profile : <name> created successfully. View all performance profiles at /listPerformanceProfiles",
+    "httpcode": 201,
+    "documentationLink": "",
+    "status": "SUCCESS"
 }
 ```
 
+* Failure
+    * Duplicate Performance Profile name.
+  ```
+  {
+      "message": "Performance Profile already exists",
+      "httpcode": 409,
+      "documentationLink": "",
+      "status": "ERROR"
+  }
+  ```
+    * Mandatory parameters are missing.
+  ```
+  {
+      "message": "Missing mandatory parameters",
+      "httpcode": 400,
+      "documentationLink": "",
+      "status": "ERROR"
+  }
+  ```
+  * Any unknown exception on server side
+  ```
+  {
+      "message": "Internal Server Error",
+      "httpcode": 500,
+      "documentationLink": "",
+      "status": "ERROR"
+  }
+  ```
 
-{% include links.html %}
+# Update Performance Profile
+
+Client will invoke the Kruize updatePerformanceProfile API for each deployment to update the performance profile to a new supported version. 
+
+# Attributes
+
+Same as in the createPerformanceProfile. You can refer [here](/design/PerformanceProfile.md#attributes)
+
+# Response
+
+* **Success**
+    
+    ```
+    {
+        "message": "Performance Profile <name> updated successfully to version %s. View Performance Profiles at /listPerformanceProfiles",
+        "httpcode": 201,
+        "documentationLink": "",
+        "status": "SUCCESS"
+    }
+    ```
+
+* **Failure**
+
+    * Incorrect Performance Profile name.
+    ```
+    {
+        "message": "Validation failed: Performance Profile <name> not found. Use POST to create a new profile.",
+        "httpcode": 404,
+        "documentationLink": "",
+        "status": "ERROR"
+    }
+    ```
+    * Mandatory parameters are missing.
+    ```
+    {
+        "message": "Validation failed: Missing mandatory parameters: <list of params missing>",
+        "httpcode": 400,
+        "documentationLink": "",
+        "status": "ERROR"
+    }
+    ```
+    * Duplicate API request.
+    ```
+    {
+        "message": "Validation failed: Performance profile <name> already updated with the version <version>",
+        "httpcode": 409,
+        "documentationLink": "",
+        "status": "ERROR"
+    }
+    ```
+    * Duplicate SLO request.
+    ```
+    {
+        "message": "Validation failed: Performance profile 'resource-optimization-openshift' already updated with the provided SLO data",
+        "httpcode": 409,
+        "documentationLink": "",
+        "status": "ERROR"
+    }
+    ```
+    * New profile data is not a superset of existing one.
+    ```
+    {
+        "message": "Validation failed: Updated profile must be a superset of existing data",
+        "httpcode": 409,
+        "documentationLink": "",
+        "status": "ERROR"
+    }
+    ```
+    * Any unknown exception on server side
+    ```
+    {
+        "message": "Internal Server Error",
+        "httpcode": 500,
+        "documentationLink": "",
+        "status": "ERROR"
+    }
+    ```
+* #####  You can get the API details [here](/design/PerformanceProfileAPI.md)

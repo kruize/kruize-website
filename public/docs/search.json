@@ -47,7 +47,16 @@
 ,
 
 {
-"title": "Create Experiment API",
+"title": "Create Metric Profile",
+"tags": "",
+"keywords": "",
+"url": "lm_create_metric_profile.html",
+"summary": ""
+}
+,
+
+{
+"title": "Create Performance Profile",
 "tags": "",
 "keywords": "",
 "url": "lm_create_performance_profile.html",
@@ -92,64 +101,19 @@
 ,
 
 {
-"title": "Create Experiment",
-"tags": "",
-"keywords": "",
-"url": "rm_create_experiment.html",
-"summary": ""
-}
-,
-
-{
-"title": "Create Metric Profile",
-"tags": "",
-"keywords": "",
-"url": "rm_create_metric_profile.html",
-"summary": ""
-}
-,
-
-{
-"title": "Generate Recommendations API",
-"tags": "",
-"keywords": "",
-"url": "rm_generate_recommendations.html",
-"summary": ""
-}
-,
-
-{
-"title": "Remote Monitoring Installation For Kruize",
-"tags": "",
-"keywords": "",
-"url": "rm_installation.html",
-"summary": ""
-}
-,
-
-{
-"title": "List Recommendations API",
-"tags": "",
-"keywords": "",
-"url": "rm_list_recommendations.html",
-"summary": ""
-}
-,
-
-{
-"title": "Update Results API",
-"tags": "",
-"keywords": "",
-"url": "rm_update_results.html",
-"summary": ""
-}
-,
-
-{
 "title": "Support",
 "tags": "",
 "keywords": "",
 "url": "support.html",
+"summary": ""
+}
+,
+
+{
+"title": "Troubleshooting",
+"tags": "",
+"keywords": "",
+"url": "troubleshooting.html",
 "summary": ""
 }
 ,

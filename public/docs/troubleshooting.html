@@ -6,7 +6,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta name="description" content="">
 <meta name="keywords" content=" ">
-<title>Create Metric Profile | Kruize Documentation</title>
+<title>Troubleshooting | Kruize Documentation</title>
 <link rel="stylesheet" href="css/syntax.css">
 
 <link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
@@ -150,7 +150,7 @@
 
 
 
-  <a class="email" title="Submit feedback" href="#" onclick="javascript:window.location='mailto:kruize@redhat.com?subject=Kruize Documentation feedback&body=I have some feedback about the Create Metric Profile page: ' + window.location.href;"><i class="fa fa-envelope-o"></i> Feedback</a>
+  <a class="email" title="Submit feedback" href="#" onclick="javascript:window.location='mailto:kruize@redhat.com?subject=Kruize Documentation feedback&body=I have some feedback about the Troubleshooting page: ' + window.location.href;"><i class="fa fa-envelope-o"></i> Feedback</a>
 
 </li>
 
@@ -170,7 +170,7 @@
                                 searchInput: document.getElementById('search-input'),
                                 resultsContainer: document.getElementById('results-container'),
                                 dataSource: 'search.json',
-                                searchResultTemplate: '<li><a href="{url}" title="Create Metric Profile">{title}</a></li>',
+                                searchResultTemplate: '<li><a href="{url}" title="Troubleshooting">{title}</a></li>',
                     noResultsText: 'No results found.',
                             limit: 10,
                             fuzzy: true,
@@ -270,13 +270,6 @@
           
           
           
-          <li><a title="Remote Monitoring Mode" href="rm_installation.html">Remote Monitoring Mode</a></li>
-          
-          
-          
-          
-          
-          
           <li><a title="Local Monitoring Mode" href="lm_installation.html">Local Monitoring Mode</a></li>
           
           
@@ -314,146 +307,7 @@
           
           
           
-          <li><a title="List Recommendations API" href="mydoc_conditional_logic.html">List Recommendations API</a></li>
-          
-          
-          
-          
-          
-          
-          <li><a title="Create Performance Profile API" href="mydoc_content_reuse.html">Create Performance Profile API</a></li>
-          
-          
-          
-          
-          
-          
-          <li><a title="Others" href="mydoc_collections.html">Others</a></li>
-          
-          
-          
-          
-      </ul>
-   </li>
-     
-      
-  
-  <li>
-      <a title="Remote Monitoring APIs" href="#">Remote Monitoring APIs</a>
-      <ul>
-          
-          
-          
-          <li><a title="Create Experiment API" href="rm_create_experiment.html">Create Experiment API</a></li>
-          
-          
-          
-          
-          
-          
-          <li><a title="List Experiments API" href="rm_list_experiments.html">List Experiments API</a></li>
-          
-          
-          
-          
-          
-          
-          <li><a title="Generate Recommendations API" href="rm_generate_recommendations.html">Generate Recommendations API</a></li>
-          
-          
-          
-          
-          
-          
-          <li><a title="List Recommendations API" href="rm_list_recommendations.html">List Recommendations API</a></li>
-          
-          
-          
-          
-          
-          
-          <li class="active"><a title="Create Metric Profile API" href="rm_create_metric_profile.html">Create Metric Profile API</a></li>
-          
-          
-          
-          
-          
-          
-          <li><a title="Update Results API" href="rm_update_results.html">Update Results API</a></li>
-          
-          
-          
-          
-      </ul>
-   </li>
-     
-      
-  
-  <li>
-      <a title="Auto-scaling APIs" href="#">Auto-scaling APIs</a>
-      <ul>
-          
-          
-          
-          <li><a title="Create Experiment API" href="mydoc_pages.html">Create Experiment API</a></li>
-          
-          
-          
-          
-          
-          
-          <li><a title="List Experiments API" href="mydoc_posts.html">List Experiments API</a></li>
-          
-          
-          
-          
-          
-          
-          <li><a title="List Recommendations API" href="mydoc_conditional_logic.html">List Recommendations API</a></li>
-          
-          
-          
-          
-      </ul>
-   </li>
-     
-      
-  
-  <li>
-      <a title="Use Cases" href="#">Use Cases</a>
-      <ul>
-          
-          
-          
-          <li><a title="Cost Optimisation" href="mydoc_sidebar_navigation.html">Cost Optimisation</a></li>
-          
-          
-          
-          
-          
-          
-          <li><a title="Performance Optimisation" href="mydoc_yaml_tutorial.html">Performance Optimisation</a></li>
-          
-          
-          
-          
-          
-          
-          <li><a title="Namespace Monitoring" href="mydoc_tags.html">Namespace Monitoring</a></li>
-          
-          
-          
-          
-          
-          
-          <li><a title="GPU Recommendations" href="mydoc_series.html">GPU Recommendations</a></li>
-          
-          
-          
-          
-          
-          
-          <li><a title="Autoscaling" href="mydoc_series.html">Autoscaling</a></li>
+          <li><a title="Create Metric Profile API" href="lm_create_metric_profile.html">Create Metric Profile API</a></li>
           
           
           
@@ -469,7 +323,7 @@
           
           
           
-          <li><a title="Troubleshooting" href="mydoc_troubleshooting.html">Troubleshooting</a></li>
+          <li class="active"><a title="Troubleshooting" href="troubleshooting.html">Troubleshooting</a></li>
           
           
           
@@ -514,7 +368,7 @@
         <!-- Content Column -->
         <div class="col-md-9" id="tg-sb-content">
             <div class="post-header">
-   <h1 class="post-title-main">Create Metric Profile</h1>
+   <h1 class="post-title-main">Troubleshooting</h1>
 </div>
 
 
@@ -553,12 +407,13 @@ $('#toc').on('click', 'a', function() {
 
     
 
-    <a target="_blank" rel="noopener" href="https://github.com/shekhar316/kruizedoc/blob/gh-pages/pages/mydoc/rm_create_metric_profile.md" class="btn btn-default githubEditButton" role="button"><i class="fa fa-github fa-lg"></i> Edit me</a>
+    <a target="_blank" rel="noopener" href="https://github.com/shekhar316/kruizedoc/blob/gh-pages/pages/mydoc/troubleshooting.md" class="btn btn-default githubEditButton" role="button"><i class="fa fa-github fa-lg"></i> Edit me</a>
 
     
 
-   <p>This page will contain information about creating metric profiles. Stay Tuned!</p>
+   <h2 id="troubleshooting">Troubleshooting</h2>
 
+<p>For any issues please report them on our github https://github.com/kruize/autotune/issues. If you need any furher assistence you can reach out on our community slack that can be found here: https://join.slack.com/t/kruizeworkspace/shared_invite/zt-2i2bs72qr-mfJU3uqcWXXSUv~O0~rbog</p>
 
 
     <div class="tags">
@@ -585,7 +440,7 @@ $('#toc').on('click', 'a', function() {
                 	<p><img src="images/company_logo.png" alt="Company logo"/></p>
                 	<br />
                &copy;2025 Red Hat India. All rights reserved. <br />
- Site last generated: Nov 12, 2025 
+ Site last generated: Nov 27, 2025 
                 </div>
             </div>
 </footer>
