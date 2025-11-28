@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kruize Demo</title>
+    <link rel="icon" type="image/x-icon" href="assets/Kruize_favicon.ico">
+    <link rel="stylesheet" href="style.css">
+    <style>
+        .demo-container {
+            max-width: 1200px;
+            margin: 40px auto;
+            padding: 20px;
+        }
+        
+        .demo-header {
+            text-align: left;
+            margin-bottom: 30px;
+        }
+        
+        .demo-header p {
+            color: #000;
+            font-size: 18px;
+            text-align: justify;
+            line-height: 1.6;
+        }
+        
+        .demo-iframe-wrapper {
+            position: relative;
+            width: 100%;
+            height: 0;
+            padding-bottom: 56.25%; /* 16:9 aspect ratio */
+            margin: 20px 0;
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+        
+        .demo-iframe-wrapper iframe {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            border: none;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="header">
+        <img src="assets/kruize-icon.png" alt="Kruize Logo" class="logo">
+        <div class="nav">
+            <a href="index.html">Home</a>
+            <a href="docs">Docs</a>
+            <a href="demo.html">Demos</a>
+            <a href="docs/kruize_blogs.html">Blogs</a>
+            <div class="icons">
+                <a href="https://github.com/kruize/autotune">
+                    <img src="assets/github-icon.png" alt="GitHub">
+                </a>
+                <a href="https://join.slack.com/t/kruizeworkspace/shared_invite/zt-2i2bs72qr-mfJU3uqcWXXSUv~O0~rbog">
+                    <img src="assets/slack-icon.png" alt="Slack">
+                </a>
+            </div>
+        </div>
+    </div>
+
+    <div class="demo-container">
+        <div class="demo-header">
+            <p>On this page you can explore an interactive demo of Kruize. This demo showcases how Kruize generates optimization recommendations for each container in your Kubernetes environment. You can navigate through the UI to get a sense of Kruize's features, view container-level recommendations, and experience the overall look and feel of the platform.</p>
+        </div>
+        
+        <div class="demo-iframe-wrapper">
+            <iframe src="https://app.storylane.io/share/p8dw5y1rm0kx" 
+                    allowfullscreen 
+                    allow="fullscreen">
+            </iframe>
+        </div>
+    </div>
+
+    <footer class="footer">
+        <!-- Left Section -->
+        <div class="footer-left">
+            <img class="kruize-footer" src="assets/kruize-vertical.png" alt="Kruize Logo">
+            <p>Copyright IBM Corp. 2025. All rights reserved.</p>
+            <p>Terms| Privacy Policy</p>
+        </div>
+        
+        <!-- Center Section -->
+        <div class="footer-center">
+
+        </div>
+
+        <!-- Right Section -->
+        <div class="footer-right">
+            <a href="mailto:kruize@redhat.com"><u>team@kruize.com</u></a>
+            <div class="social-icons">
+                <a href="https://github.com/kruize/autotune"><img src="assets/github-icon.png" alt="GitHub"></a>
+                <a href="https://join.slack.com/t/kruizeworkspace/shared_invite/zt-2i2bs72qr-mfJU3uqcWXXSUv~O0~rbog"><img src="assets/slack-black.png" alt="Slack"></a>
+            </div>
+        </div>
+    </footer>
+
+</body>
+
+</html>
