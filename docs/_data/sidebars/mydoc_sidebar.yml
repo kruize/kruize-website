@@ -36,10 +36,6 @@ entries:
       url: /experiment_modes.html
       output: web, pdf
 
-    - title: Performance Profiles
-      url: /performance_profiles.html
-      output: web, pdf
-
     - title: Support
       url: /support.html
       output: web, pdf
@@ -77,8 +73,20 @@ entries:
       url: /lm_generate_recommendations.html
       output: web, pdf
 
-    - title: Create Metric Profile API
-      url: /lm_create_metric_profile.html
+    - title: Create Metadata Profile
+      url: /create_metadata_profile.html
+      output: web, pdf
+
+    - title: List Metadata Profile
+      url: /list_metadata.html
+      output: web, pdf
+
+    - title: Delete Metadata Profile
+      url: /delete_metadata_profile.html
+      output: web, pdf
+    
+    - title: Import Metadata
+      url: /import_metadata.html
       output: web, pdf
 
   - title: Troubleshooting

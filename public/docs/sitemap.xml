@@ -32,6 +32,24 @@
   
   
   <url>
+    <loc>http://localhost:4000/create_metadata_profile.html</loc>
+  </url>
+  
+  
+  
+  <url>
+    <loc>http://localhost:4000/import_metadata.html</loc>
+  </url>
+  
+  
+  
+  <url>
+    <loc>http://localhost:4000/delete_metadata_profile.html</loc>
+  </url>
+  
+  
+  
+  <url>
     <loc>http://localhost:4000/experiment_modes.html</loc>
   </url>
   
@@ -50,6 +68,12 @@
   
   
   <url>
+    <loc>http://localhost:4000/list_metadata.html</loc>
+  </url>
+  
+  
+  
+  <url>
     <loc>http://localhost:4000/lm_create_exp.html</loc>
   </url>
   
@@ -57,12 +81,6 @@
   
   <url>
     <loc>http://localhost:4000/lm_create_metric_profile.html</loc>
-  </url>
-  
-  
-  
-  <url>
-    <loc>http://localhost:4000/lm_create_performance_profile.html</loc>
   </url>
   
   
@@ -81,12 +99,6 @@
   
   <url>
     <loc>http://localhost:4000/lm_list_exp.html</loc>
-  </url>
-  
-  
-  
-  <url>
-    <loc>http://localhost:4000/performance_profiles.html</loc>
   </url>
   
   

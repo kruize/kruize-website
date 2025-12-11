@@ -11,6 +11,33 @@
 ,
 
 {
+"title": "Create Metadata Profile",
+"tags": "",
+"keywords": "",
+"url": "create_metadata_profile.html",
+"summary": ""
+}
+,
+
+{
+"title": "Import Metadata",
+"tags": "",
+"keywords": "",
+"url": "import_metadata.html",
+"summary": ""
+}
+,
+
+{
+"title": "Delete Metadata Profile",
+"tags": "",
+"keywords": "",
+"url": "delete_metadata_profile.html",
+"summary": ""
+}
+,
+
+{
 "title": "Supported Experiment Modes",
 "tags": "",
 "keywords": "",
@@ -38,6 +65,15 @@
 ,
 
 {
+"title": "List Metadata",
+"tags": "",
+"keywords": "",
+"url": "list_metadata.html",
+"summary": ""
+}
+,
+
+{
 "title": "Create Experiment API",
 "tags": "",
 "keywords": "",
@@ -51,15 +87,6 @@
 "tags": "",
 "keywords": "",
 "url": "lm_create_metric_profile.html",
-"summary": ""
-}
-,
-
-{
-"title": "Create Performance Profile",
-"tags": "",
-"keywords": "",
-"url": "lm_create_performance_profile.html",
 "summary": ""
 }
 ,
@@ -87,15 +114,6 @@
 "tags": "",
 "keywords": "",
 "url": "lm_list_exp.html",
-"summary": ""
-}
-,
-
-{
-"title": "Performance Profiles",
-"tags": "",
-"keywords": "",
-"url": "performance_profiles.html",
 "summary": ""
 }
 ,

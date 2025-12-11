@@ -6,7 +6,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta name="description" content="">
 <meta name="keywords" content=" ">
-<title>Create Performance Profile | Kruize Documentation</title>
+<title>Delete Metadata Profile | Kruize Documentation</title>
 <link rel="stylesheet" href="css/syntax.css">
 
 <link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
@@ -150,7 +150,7 @@
 
 
 
-  <a class="email" title="Submit feedback" href="#" onclick="javascript:window.location='mailto:kruize@redhat.com?subject=Kruize Documentation feedback&body=I have some feedback about the Create Performance Profile page: ' + window.location.href;"><i class="fa fa-envelope-o"></i> Feedback</a>
+  <a class="email" title="Submit feedback" href="#" onclick="javascript:window.location='mailto:kruize@redhat.com?subject=Kruize Documentation feedback&body=I have some feedback about the Delete Metadata Profile page: ' + window.location.href;"><i class="fa fa-envelope-o"></i> Feedback</a>
 
 </li>
 
@@ -170,7 +170,7 @@
                                 searchInput: document.getElementById('search-input'),
                                 resultsContainer: document.getElementById('results-container'),
                                 dataSource: 'search.json',
-                                searchResultTemplate: '<li><a href="{url}" title="Create Performance Profile">{title}</a></li>',
+                                searchResultTemplate: '<li><a href="{url}" title="Delete Metadata Profile">{title}</a></li>',
                     noResultsText: 'No results found.',
                             limit: 10,
                             fuzzy: true,
@@ -225,13 +225,6 @@
           
           
           <li><a title="Experiment Modes" href="experiment_modes.html">Experiment Modes</a></li>
-          
-          
-          
-          
-          
-          
-          <li><a title="Performance Profiles" href="performance_profiles.html">Performance Profiles</a></li>
           
           
           
@@ -307,7 +300,28 @@
           
           
           
-          <li><a title="Create Metric Profile API" href="lm_create_metric_profile.html">Create Metric Profile API</a></li>
+          <li><a title="Create Metadata Profile" href="create_metadata_profile.html">Create Metadata Profile</a></li>
+          
+          
+          
+          
+          
+          
+          <li><a title="List Metadata Profile" href="list_metadata.html">List Metadata Profile</a></li>
+          
+          
+          
+          
+          
+          
+          <li class="active"><a title="Delete Metadata Profile" href="delete_metadata_profile.html">Delete Metadata Profile</a></li>
+          
+          
+          
+          
+          
+          
+          <li><a title="Import Metadata" href="import_metadata.html">Import Metadata</a></li>
           
           
           
@@ -368,7 +382,7 @@
         <!-- Content Column -->
         <div class="col-md-9" id="tg-sb-content">
             <div class="post-header">
-   <h1 class="post-title-main">Create Performance Profile</h1>
+   <h1 class="post-title-main">Delete Metadata Profile</h1>
 </div>
 
 
@@ -407,202 +421,303 @@ $('#toc').on('click', 'a', function() {
 
     
 
-    <a target="_blank" rel="noopener" href="https://github.com/shekhar316/kruizedoc/blob/gh-pages/pages/mydoc/lm_create_performance_profile.md" class="btn btn-default githubEditButton" role="button"><i class="fa fa-github fa-lg"></i> Edit me</a>
+    <a target="_blank" rel="noopener" href="https://github.com/shekhar316/kruizedoc/blob/gh-pages/pages/mydoc/delete_metadata_profile.md" class="btn btn-default githubEditButton" role="button"><i class="fa fa-github fa-lg"></i> Edit me</a>
 
     
 
-   <h1 id="create-performance-profile">Create Performance Profile</h1>
+   <h3 id="delete-metadata-profile-api">Delete Metadata Profile API</h3>
 
-<p>Client will invoke the Kruize createPerformanceProfile API for each deployment. Documentation still in progress stay
-tuned.</p>
+<p>This is quick guide instructions to delete metadata profile created as follows.</p>
 
-<h1 id="attributes">Attributes</h1>
+<p><strong>Request Parameters</strong></p>
 
-<ul>
-  <li><strong>name</strong> <br />
-A unique string name for identifying each performance profile.</li>
-  <li><strong>profile_version</strong> <br />
-a double value specifying the current version of the profile.</li>
-  <li><strong>slo</strong> <br />
-Service Level Objective containing the <em>direction</em>, <em>objective_function</em> and <em>function_variables</em>
-    <ul>
-      <li><strong>slo_class</strong> <br />
-a standard slo “bucket” defined by Kruize. Can be “<em>resource_usage</em>”, “<em>throughput</em>” or “<em>response_time</em>”</li>
-      <li><strong>direction</strong> <br />
-based on the slo_class, it can be ‘<em>maximize</em>’ or ‘<em>minimize</em>’</li>
-      <li><strong>objective_function</strong> <br />
-Define the performance objective here.
-        <ul>
-          <li><strong>function_type</strong> <br />
-can be specified as ‘<em>source</em>’ (a java file) or as an ‘<em>expression</em>‘(algebraic). If it’s an expression, it needs to defined below.</li>
-          <li><strong>expression</strong> <br />
-an algebraic expression that details the calculation using function variables. Only valid if the “<em>function_type</em>” is “expression”</li>
-        </ul>
-      </li>
-      <li><strong>function_variables</strong> <br />
-Define the variables used in the <em>objective_function</em>
-        <ul>
-          <li><strong>name</strong> <br />
-name of the variable</li>
-          <li><strong>datasource</strong> <br />
-datasource of the query</li>
-          <li><strong>value_type</strong> <br />
-can be double or integer</li>
-          <li><strong>query</strong> <br />
-one of the query or <em>aggregation_functions</em> is mandatory. Both can be present.</li>
-          <li><strong>kubernetes_object</strong> <br />
-k8s object that this query is tied to: “<em>deployment</em>”, “<em>pod</em>” or “<em>container</em>”</li>
-          <li><strong>aggregation_functions</strong> <br />
-aggregate functions associated with this variable
-            <ul>
-              <li><strong>function</strong> <br />
-can be ‘<em>avg</em>’, ‘<em>sum</em>’, ‘<em>min</em>’, ‘<em>max</em>’</li>
-              <li><strong>query</strong> <br />
-corresponding query</li>
-              <li><strong>versions</strong> <br />
-Any specific versions that this query is tied to</li>
-            </ul>
-          </li>
-        </ul>
-      </li>
-    </ul>
-  </li>
-</ul>
+<table>
+  <thead>
+    <tr>
+      <th>Parameter</th>
+      <th>Type</th>
+      <th>Required</th>
+      <th>Description</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>name</td>
+      <td>string</td>
+      <td>required</td>
+      <td>The name of the metadata profile</td>
+    </tr>
+  </tbody>
+</table>
 
-<h1 id="response">Response</h1>
+<p><strong>Request with name query parameter</strong></p>
 
-<ul>
-  <li>Success</li>
-</ul>
+<p><code class="language-plaintext highlighter-rouge">DELETE /deleteMetadataProfile</code></p>
 
-<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>{
-    "message": "Performance Profile : &lt;name&gt; created successfully. View all performance profiles at /listPerformanceProfiles",
-    "httpcode": 201,
-    "documentationLink": "",
-    "status": "SUCCESS"
-}
-</code></pre></div></div>
+<p><code class="language-plaintext highlighter-rouge">curl -H 'Accept: application/json' http://&lt;URL&gt;:&lt;PORT&gt;/deleteMetadataProfile?name=cluster-metadata-local-monitoring</code></p>
 
-<ul>
-  <li>Failure
-    <ul>
-      <li>Duplicate Performance Profile name.
-        <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>{
-"message": "Performance Profile already exists",
-"httpcode": 409,
-"documentationLink": "",
-"status": "ERROR"
-}
-</code></pre></div>        </div>
-      </li>
-      <li>Mandatory parameters are missing.
-        <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>{
-"message": "Missing mandatory parameters",
-"httpcode": 400,
-"documentationLink": "",
-"status": "ERROR"
-}
-</code></pre></div>        </div>
-      </li>
-      <li>Any unknown exception on server side
-        <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>{
-  "message": "Internal Server Error",
-  "httpcode": 500,
+<p>Deletes the specified metadata profile name, provided metadata profile already is created</p>
+
+<details>
+<summary><b>Example Response</b></summary>
+
+### Example Response
+
+```json
+{
+  "message": "Metadata profile: cluster-metadata-local-monitoring deleted successfully. View Metadata Profiles at /listMetadataProfiles",
+  "httpcode": 201,
   "documentationLink": "",
-  "status": "ERROR"
+  "status": "SUCCESS"
 }
-</code></pre></div>        </div>
-      </li>
-    </ul>
-  </li>
-</ul>
+```
 
-<h1 id="update-performance-profile">Update Performance Profile</h1>
+</details>
 
-<p>Client will invoke the Kruize updatePerformanceProfile API for each deployment to update the performance profile to a new supported version.</p>
+<h3 id="invalid-scenarios">Invalid Scenarios:</h3>
 
-<h1 id="attributes-1">Attributes</h1>
+<details>
+<summary><b>Invalid or Non-existing MetadataProfile name</b></summary>
 
-<p>Same as in the createPerformanceProfile. You can refer <a href="/design/PerformanceProfile.md#attributes">here</a></p>
+`name="xyz"`(Can be either invalid or non-existing profile name)
 
-<h1 id="response-1">Response</h1>
+`curl -H 'Accept: application/json' -X DELETE http://<URL>:<PORT>/deleteMetadataProfile?name=xyz`
 
-<ul>
-  <li>
-    <p><strong>Success</strong></p>
-
-    <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>  {
-      "message": "Performance Profile &lt;name&gt; updated successfully to version %s. View Performance Profiles at /listPerformanceProfiles",
-      "httpcode": 201,
-      "documentationLink": "",
-      "status": "SUCCESS"
-  }
-</code></pre></div>    </div>
-  </li>
-  <li>
-    <p><strong>Failure</strong></p>
-
-    <ul>
-      <li>Incorrect Performance Profile name.
-        <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>  {
-  "message": "Validation failed: Performance Profile &lt;name&gt; not found. Use POST to create a new profile.",
-  "httpcode": 404,
-  "documentationLink": "",
-  "status": "ERROR"
-  }
-</code></pre></div>        </div>
-      </li>
-      <li>Mandatory parameters are missing.
-        <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>  {
-  "message": "Validation failed: Missing mandatory parameters: &lt;list of params missing&gt;",
+```json
+{
+  "message": "Given metadata profile name - xyz either does not exist or is not valid",
   "httpcode": 400,
   "documentationLink": "",
   "status": "ERROR"
-  }
-</code></pre></div>        </div>
-      </li>
-      <li>Duplicate API request.
-        <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>  {
-  "message": "Validation failed: Performance profile &lt;name&gt; already updated with the version &lt;version&gt;",
-  "httpcode": 409,
+}
+```
+
+&lt;/details&gt;
+
+<details>
+<summary><b>Missing query parameter</b></summary>
+
+Supported query parameter is `name`
+
+Example: `curl -H 'Accept: application/json' -X DELETE http://<URL>:<PORT>/deleteMetadataProfile`
+```json
+{
+  "message": "Missing metadata profile 'name' parameter",
+  "httpcode": 400,
   "documentationLink": "",
   "status": "ERROR"
-  }
-</code></pre></div>        </div>
-      </li>
-      <li>Duplicate SLO request.
-        <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>  {
-  "message": "Validation failed: Performance profile 'resource-optimization-openshift' already updated with the provided SLO data",
-  "httpcode": 409,
+}
+```
+
+&lt;/details&gt;
+
+<br />
+
+<a name="update-metadata-profile-api"></a>
+
+
+### Update Metadata Profile API
+
+This is quick guide instructions to update metadata profile as follows.
+
+**Request Parameters**
+
+| Parameter | Type   | Required | Description                      |
+|-----------|--------|----------|----------------------------------|
+| name      | string | required | The name of the metadata profile |
+
+
+**Request with name query parameter**
+
+`PUT /updateMetadataProfile`
+
+`curl -H 'Accept: application/json' -X PUT --data 'copy paste below JSON' http://<URL>:<PORT>/updateMetadataProfile?name=cluster-metadata-local-monitoring`
+
+<details>
+
+Updates the specified metadata profile name, provided metadata profile is already created
+
+<summary><b>Example Request</b></summary>
+
+```json
+{
+  "apiVersion": "recommender.com/v1",
+  "kind": "KruizeMetadataProfile",
+  "metadata": {
+    "name": "cluster-metadata-local-monitoring"
+  },
+  "profile_version": 1,
+  "k8s_type": "openshift",
+  "datasource": "prometheus",
+  "query_variables": [
+    {
+      "name": "namespacesForAdditionalLabel",
+      "datasource": "prometheus",
+      "value_type": "double",
+      "kubernetes_object": "container",
+      "aggregation_functions": [
+        {
+          "function": "sum",
+          "query": "sum by (namespace) (avg_over_time(kube_namespace_status_phase{namespace!=\"\", namespace=~\"openshift-tuning|monitoring\" ADDITIONAL_LABEL}[$MEASUREMENT_DURATION_IN_MIN$m]))"
+        }
+      ]
+    },
+    {
+      "name": "workloadsForAdditionalLabel",
+      "datasource": "prometheus",
+      "value_type": "double",
+      "kubernetes_object": "container",
+      "aggregation_functions": [
+        {
+          "function": "sum",
+          "query": "sum by (namespace, workload, workload_type) (avg_over_time(namespace_workload_pod:kube_pod_owner:relabel{workload!=\"\", workload=\"kruize\" ADDITIONAL_LABEL}[$MEASUREMENT_DURATION_IN_MIN$m]))"
+        }
+      ]
+    },
+    {
+      "name": "containerForAdditionalLabel",
+      "datasource": "prometheus",
+      "value_type": "double",
+      "kubernetes_object": "container",
+      "aggregation_functions": [
+        {
+          "function": "sum",
+          "query": "sum by (container, image, workload, workload_type, namespace) (avg_over_time(kube_pod_container_info{container!=\"\", container=\"kruize\" ADDITIONAL_LABEL}[$MEASUREMENT_DURATION_IN_MIN$m]) * on (pod, namespace) group_left(workload, workload_type) avg_over_time(namespace_workload_pod:kube_pod_owner:relabel{workload!=\"\" ADDITIONAL_LABEL}[$MEASUREMENT_DURATION_IN_MIN$m]))"
+        }
+      ]
+    }
+  ]
+}
+```
+</details>
+
+<details>
+<summary><b>Example Response</b></summary>
+
+### Example Response
+
+```json
+{
+  "message": "Metadata profile: cluster-metadata-local-monitoring updated successfully. View Metadata Profiles at /listMetadataProfiles",
+  "httpcode": 201,
+  "documentationLink": "",
+  "status": "SUCCESS"
+}
+```
+
+</details>
+
+### Invalid Scenarios:
+
+<details>
+<summary><b>Invalid or Non-existing MetadataProfile name</b></summary>
+
+`name="xyz"`(Can be either invalid or non-existing profile name)
+
+`curl -H 'Accept: application/json' -X PUT http://<URL>:<PORT>/updateMetadataProfile?name=xyz`
+
+```json
+{
+  "message": "Given metadata profile name - xyz either does not exist or is not valid",
+  "httpcode": 400,
   "documentationLink": "",
   "status": "ERROR"
-  }
-</code></pre></div>        </div>
-      </li>
-      <li>New profile data is not a superset of existing one.
-        <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>  {
-  "message": "Validation failed: Updated profile must be a superset of existing data",
-  "httpcode": 409,
+}
+```
+
+&lt;/details&gt;
+
+<details>
+<summary><b>Missing query parameter</b></summary>
+
+Supported query parameter is `name`
+
+Example: `curl -H 'Accept: application/json' -X PUT http://<URL>:<PORT>/updateMetadataProfile`
+```json
+{
+  "message": "Missing metadata profile 'name' parameter",
+  "httpcode": 400,
   "documentationLink": "",
   "status": "ERROR"
-  }
-</code></pre></div>        </div>
-      </li>
-      <li>Any unknown exception on server side
-        <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>  {
-  "message": "Internal Server Error",
-  "httpcode": 500,
+}
+```
+
+&lt;/details&gt;
+
+<details>
+<summary><b>Mismatch in JSON payload and input parameter profile names</b></summary>
+
+Supported query parameter is `name`
+
+Example: `curl -H 'Accept: application/json' -X PUT http://<URL>:<PORT>/updateMetadataProfile?name=cluster-metadata-local-monitoring`
+
+<details>
+
+<summary><b>Example Request with non-existing profile name</b></summary>
+
+```json
+{
+  "apiVersion": "recommender.com/v1",
+  "kind": "KruizeMetadataProfile",
+  "metadata": {
+    "name": "cluster-metadata-local-monitoring1"
+  },
+  "profile_version": 1,
+  "k8s_type": "openshift",
+  "datasource": "prometheus",
+  "query_variables": [
+    {
+      "name": "namespacesForAdditionalLabel",
+      "datasource": "prometheus",
+      "value_type": "double",
+      "kubernetes_object": "container",
+      "aggregation_functions": [
+        {
+          "function": "sum",
+          "query": "sum by (namespace) (avg_over_time(kube_namespace_status_phase{namespace!=\"\" ADDITIONAL_LABEL}[$MEASUREMENT_DURATION_IN_MIN$m]))"
+        }
+      ]
+    },
+    {
+      "name": "workloadsForAdditionalLabel",
+      "datasource": "prometheus",
+      "value_type": "double",
+      "kubernetes_object": "container",
+      "aggregation_functions": [
+        {
+          "function": "sum",
+          "query": "sum by (namespace, workload, workload_type) (avg_over_time(namespace_workload_pod:kube_pod_owner:relabel{workload!=\"\" ADDITIONAL_LABEL}[$MEASUREMENT_DURATION_IN_MIN$m]))"
+        }
+      ]
+    },
+    {
+      "name": "containerForAdditionalLabel",
+      "datasource": "prometheus",
+      "value_type": "double",
+      "kubernetes_object": "container",
+      "aggregation_functions": [
+        {
+          "function": "sum",
+          "query": "sum by (container, image, workload, workload_type, namespace) (avg_over_time(kube_pod_container_info{container!=\"\" ADDITIONAL_LABEL}[$MEASUREMENT_DURATION_IN_MIN$m]) * on (pod, namespace) group_left(workload, workload_type) avg_over_time(namespace_workload_pod:kube_pod_owner:relabel{workload!=\"\" ADDITIONAL_LABEL}[$MEASUREMENT_DURATION_IN_MIN$m]))"
+        }
+      ]
+    }
+  ]
+}
+```
+</details>
+
+```json
+{
+  "message": "MetadataProfile name in URL: cluster-metadata-local-monitoring, does not match name in request body: cluster-metadata-local-monitoring1",
+  "httpcode": 400,
   "documentationLink": "",
   "status": "ERROR"
-  }
-</code></pre></div>        </div>
-      </li>
-    </ul>
-  </li>
-  <li>
-    <h5 id="you-can-get-the-api-details-here">You can get the API details <a href="/design/PerformanceProfileAPI.md">here</a></h5>
-  </li>
-</ul>
+}
+```
+
+&lt;/details&gt;
+</PORT></URL></details></PORT></URL></details></PORT></URL></details></PORT></URL></PORT></URL></details></PORT></URL></details>
 
 
     <div class="tags">
@@ -629,7 +744,7 @@ Any specific versions that this query is tied to</li>
                 	<p><img src="images/company_logo.png" alt="Company logo"/></p>
                 	<br />
                &copy;2025 Red Hat India. All rights reserved. <br />
- Site last generated: Nov 27, 2025 
+ Site last generated: Dec 4, 2025 
                 </div>
             </div>
 </footer>
