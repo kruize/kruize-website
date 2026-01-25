@@ -24,7 +24,7 @@ entries:
     folderitems:
 
     - title: Introduction to Kruize
-      url: /index.html
+      url: https://kruize.github.io/kruize-website
       output: web, pdf
       type: homepage
 
