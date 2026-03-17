@@ -7,4 +7,4 @@ folder: mydoc
 
 ## Release Notes ##
 
-Check here for the latest release notes: https://github.com/kruize/autotune/releases
+Check here for the [latest release notes](https://github.com/kruize/autotune/releases)

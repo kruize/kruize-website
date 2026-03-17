@@ -24,7 +24,7 @@ entries:
     folderitems:
 
     - title: Introduction to Kruize
-      url: https://kruize.github.io/kruize-website
+      url: /kruize_introduction.html
       output: web, pdf
       type: homepage
 
@@ -34,10 +34,6 @@ entries:
 
     - title: Experiment Modes 
       url: /experiment_modes.html
-      output: web, pdf
-
-    - title: Support
-      url: /support.html
       output: web, pdf
 
   - title: Release Notes
@@ -61,18 +57,6 @@ entries:
     output: web, pdf
 
     folderitems:
-    - title: Create Experiment API
-      url: /lm_create_exp.html
-      output: web, pdf
-
-    - title: List Experiments API
-      url: /lm_list_exp.html
-      output: web, pdf
-
-    - title: Generate Recommendations API
-      url: /lm_generate_recommendations.html
-      output: web, pdf
-
     - title: Create Metadata Profile
       url: /create_metadata_profile.html
       output: web, pdf
@@ -84,17 +68,21 @@ entries:
     - title: Delete Metadata Profile
       url: /delete_metadata_profile.html
       output: web, pdf
-    
+
     - title: Import Metadata
       url: /import_metadata.html
       output: web, pdf
 
-  - title: Troubleshooting
-    output: web, pdf
+    - title: Create Experiment API
+      url: /lm_create_exp.html
+      output: web, pdf
 
-    folderitems:
-    - title: Troubleshooting
-      url: /troubleshooting.html
+    - title: List Experiments API
+      url: /lm_list_exp.html
+      output: web, pdf
+
+    - title: Generate Recommendations API
+      url: /lm_generate_recommendations.html
       output: web, pdf
 
   - title: Kruize Blogs
@@ -108,6 +96,10 @@ entries:
 
     - title: How Kruize optimizes OpenShift workloads
       external_url: https://developers.redhat.com/articles/2025/06/25/how-kruize-optimizes-openshift-workloads
+      output: web, pdf
+
+    - title: Optimizing Kubernetes Workloads with Kruize Operator
+      external_url: https://medium.com/@shreyabiradar/optimizing-kubernetes-workloads-with-kruize-operator-4ddc02196e61
       output: web, pdf
       
     - title: Hyperparameter Optimisation with Ray Tune
