@@ -57,6 +57,10 @@ entries:
     output: web, pdf
 
     folderitems:
+    - title: Create Metric Profile
+      url: /lm_create_metric_profile.html
+      output: web, pdf
+
     - title: Create Metadata Profile
       url: /create_metadata_profile.html
       output: web, pdf

@@ -611,6 +611,3 @@ Returns all the recommendations of the specified experiment
   ]
 }
 ```
-
-
-{% include links.html %}
