@@ -21,6 +21,10 @@ Here you'll find a collection of blogs and articles about Kruize, its features, 
   
   Explore how Kruize can help improve application performance through hyperparameter optimization.
 
+* [Optimizing Kubernetes Workloads with Kruize Operator](https://medium.com/@shreyabiradar/optimizing-kubernetes-workloads-with-kruize-operator-4ddc02196e61)
+
+  Explore how Kruize Operator can be used to optimize Kubernetes workloads 
+
 ### External Articles
 
 * [Deploying LLaMa Stack on OpenShift](https://menghanibhanvi.medium.com/a-step-by-step-guide-to-deploying-llama-stack-server-on-openshift-34d8c4214a6f?source=friends_link&sk=121902c7e8e51842bb7420696afaf8c5)

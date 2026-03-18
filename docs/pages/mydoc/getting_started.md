@@ -116,6 +116,3 @@ $ ./remote_monitoring_demo.sh -r -o [kruize image]
 # To terminate the demo
 $ ./remote_monitoring_demo.sh -t
 ```
-
-
-{% include links.html %}

@@ -554,7 +554,7 @@ This is quick guide instructions to create metric profile using input JSON as fo
       "status": "ERROR"
   }
   ```
-#### Note: One of query or aggregation_functions is mandatory. Both can be present together.
+Note: One of query or aggregation_functions is mandatory. Both can be present together.
 
 ## List Metric Profiles
 
@@ -1025,4 +1025,3 @@ List metric profiles output JSON as follows.
 ]
 ```
 
-{% include links.html %}

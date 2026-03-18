@@ -79,4 +79,3 @@ TFB (TechEmpower Framework Benchmarks) benchmark is simulated in different load 
   - Illustrates under-provisioning where CPU recommendations exceed the current CPU requests, suggesting adjustments for improved efficiency.
   ![underprovision](https://github.com/kusumachalasani/autotune-demo/assets/17760990/9005a59d-db4c-41b4-b170-90adf0fafff0)
 
-{% include links.html %}

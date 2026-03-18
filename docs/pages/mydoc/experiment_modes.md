@@ -12,4 +12,3 @@ Kruize currently supports three modes: `monitor`, `auto`, and `recreate`.
 - Once in-place autoscaling becomes available in Kubernetes, the auto mode will update pods dynamically without requiring recreation.
 
 
-{% include links.html %}
