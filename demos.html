@@ -1,0 +1,717 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kruize Demos - Interactive Sandbox</title>
+    <link rel="icon" type="image/x-icon" href="assets/Kruize_favicon.ico">
+    <link rel="stylesheet" href="style.css">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.0/dist/chart.umd.min.js"></script>
+    <style>
+        /* Demo-specific styles */
+        .demo-hero {
+            background: linear-gradient(135deg, #004E98 0%, #3a6EA5 100%);
+            color: white;
+            text-align: center;
+            padding: 60px 20px;
+        }
+
+        .demo-hero h1 {
+            font-size: 48px;
+            margin-bottom: 20px;
+        }
+
+        .demo-hero p {
+            font-size: 22px;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .demo-tabs {
+            display: flex;
+            justify-content: center;
+            gap: 10px;
+            padding: 40px 20px 20px;
+            background: white;
+            flex-wrap: wrap;
+        }
+
+        .demo-tab {
+            padding: 12px 25px;
+            background: #f4f4f4;
+            border: 2px solid #004E98;
+            color: #004E98;
+            cursor: pointer;
+            border-radius: 5px;
+            font-size: 16px;
+            font-weight: bold;
+            transition: all 0.3s;
+        }
+
+        .demo-tab:hover {
+            background: #FF9D00;
+            color: white;
+            border-color: #FF9D00;
+            transform: translateY(-2px);
+        }
+
+        .demo-tab.active {
+            background: #004E98;
+            color: white;
+        }
+
+        .demo-content {
+            display: none;
+            padding: 40px 20px;
+            background: white;
+            min-height: 600px;
+        }
+
+        .demo-content.active {
+            display: block;
+        }
+
+        .sandbox-container {
+            max-width: 1400px;
+            margin: 0 auto;
+            background: #f9f9f9;
+            border-radius: 10px;
+            padding: 30px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+        }
+
+        .sandbox-iframe {
+            width: 100%;
+            height: 700px;
+            border: none;
+            border-radius: 8px;
+            background: white;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+        }
+
+        .demo-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 25px;
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        .demo-card {
+            background: white;
+            padding: 25px;
+            border-radius: 10px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s, box-shadow 0.3s;
+            border-left: 4px solid #FF9D00;
+        }
+
+        .demo-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 6px 20px rgba(0, 0, 0, 0.15);
+        }
+
+        .demo-card h3 {
+            color: #004E98;
+            margin-top: 0;
+            font-size: 22px;
+        }
+
+        .demo-card p {
+            color: #555;
+            line-height: 1.6;
+        }
+
+        .demo-button {
+            background: #FF9D00;
+            color: white;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-weight: bold;
+            margin-top: 15px;
+            transition: all 0.3s;
+        }
+
+        .demo-button:hover {
+            background: #e68900;
+            transform: scale(1.05);
+        }
+
+        .code-block {
+            background: #1e1e1e;
+            color: #d4d4d4;
+            padding: 20px;
+            border-radius: 8px;
+            overflow-x: auto;
+            font-family: 'Courier New', monospace;
+            margin: 20px 0;
+            white-space: pre-wrap;
+            line-height: 1.6;
+        }
+
+        .scenario-selector {
+            display: flex;
+            gap: 15px;
+            margin-bottom: 30px;
+            flex-wrap: wrap;
+        }
+
+        .scenario-btn {
+            padding: 10px 20px;
+            background: white;
+            border: 2px solid #004E98;
+            color: #004E98;
+            border-radius: 5px;
+            cursor: pointer;
+            font-weight: bold;
+            transition: all 0.3s;
+        }
+
+        .scenario-btn:hover,
+        .scenario-btn.active {
+            background: #004E98;
+            color: white;
+        }
+
+        .sandbox-placeholder {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 60px 30px;
+            border-radius: 10px;
+            text-align: center;
+        }
+
+        .sandbox-placeholder h2 {
+            font-size: 32px;
+            margin-bottom: 20px;
+        }
+
+        .sandbox-placeholder p {
+            font-size: 18px;
+            margin-bottom: 30px;
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .video-container {
+            position: relative;
+            padding-bottom: 56.25%;
+            height: 0;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+        }
+
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 20px;
+            margin: 30px 0;
+        }
+
+        .stat-box {
+            background: #f4f4f4;
+            padding: 20px;
+            border-radius: 8px;
+            text-align: center;
+            border-left: 4px solid #FF9D00;
+        }
+
+        .stat-box h4 {
+            color: #004E98;
+            font-size: 32px;
+            margin: 0;
+        }
+
+        .stat-box p {
+            color: #666;
+            margin: 10px 0 0;
+        }
+
+        /* Interactive Sandbox Styles */
+        .interactive-sandbox {
+            background: white;
+            padding: 20px;
+            border-radius: 10px;
+        }
+
+        .comparison-container {
+            display: grid;
+            grid-template-columns: 1fr auto 1fr;
+            gap: 30px;
+            margin-bottom: 40px;
+            align-items: center;
+        }
+
+        .comparison-side {
+            background: #f8f9fa;
+            padding: 25px;
+            border-radius: 10px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+        }
+
+        .metric-card {
+            background: white;
+            padding: 20px;
+            margin: 15px 0;
+            border-radius: 8px;
+            box-shadow: 0 2px 6px rgba(0,0,0,0.05);
+        }
+
+        .metric-label {
+            font-size: 14px;
+            color: #666;
+            margin-bottom: 8px;
+            text-transform: uppercase;
+            font-weight: 600;
+        }
+
+        .metric-value {
+            font-size: 32px;
+            font-weight: bold;
+        }
+
+        .metric-value.current {
+            color: #dc3545;
+        }
+
+        .metric-value.recommended {
+            color: #28a745;
+        }
+
+        .arrow-container {
+            text-align: center;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 15px;
+        }
+
+        .optimization-arrow {
+            font-size: 48px;
+            color: #FF9D00;
+            font-weight: bold;
+        }
+
+        .savings-badge {
+            background: #28a745;
+            color: white;
+            padding: 8px 16px;
+            border-radius: 20px;
+            font-weight: bold;
+            font-size: 16px;
+        }
+
+        .charts-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+            gap: 30px;
+            margin: 40px 0;
+        }
+
+        .chart-container {
+            background: white;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+        }
+
+        .recommendations-table {
+            margin: 30px 0;
+            overflow-x: auto;
+        }
+
+        #recommendations-table {
+            width: 100%;
+            border-collapse: collapse;
+            background: white;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+            border-radius: 8px;
+            overflow: hidden;
+        }
+
+        #recommendations-table th {
+            background: #004E98;
+            color: white;
+            padding: 15px;
+            text-align: left;
+            font-weight: 600;
+        }
+
+        #recommendations-table td {
+            padding: 15px;
+            border-bottom: 1px solid #eee;
+        }
+
+        #recommendations-table tbody tr:hover {
+            background: #f8f9fa;
+        }
+
+        .impact-positive {
+            color: #28a745;
+            font-weight: bold;
+        }
+
+        .impact-negative {
+            color: #dc3545;
+            font-weight: bold;
+        }
+
+        @media (max-width: 768px) {
+            .comparison-container {
+                grid-template-columns: 1fr;
+            }
+
+            .arrow-container {
+                transform: rotate(90deg);
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <div class="header">
+        <a href="index.html"><img src="assets/kruize-icon.png" alt="Kruize Logo" class="logo"></a>
+        <div class="nav">
+            <a href="index.html">Home</a>
+            <a href="docs">Docs</a>
+            <a href="demos.html">Demos</a>
+            <a href="docs/kruize_blogs.html">Blogs</a>
+            <div class="icons">
+                <a href="https://github.com/kruize/autotune">
+                    <img src="assets/github-icon.png" alt="GitHub">
+                </a>
+                <a href="https://join.slack.com/t/kruizeworkspace/shared_invite/zt-2i2bs72qr-mfJU3uqcWXXSUv~O0~rbog">
+                    <img src="assets/slack-icon.png" alt="Slack">
+                </a>
+            </div>
+        </div>
+    </div>
+
+    <div class="community-call">
+        <u>Explore Kruize demos and see optimization in action!</u>
+    </div>
+
+    <div class="demo-hero">
+        <h1>Interactive Demos</h1>
+        <p>Experience Kruize's powerful optimization capabilities through interactive demos, tutorials, and real-world scenarios</p>
+    </div>
+
+    <div class="demo-tabs">
+        <button class="demo-tab active" onclick="showDemo('sandbox')">🎮 Live Sandbox</button>
+        <button class="demo-tab" onclick="showDemo('scenarios')">📊 Demo Scenarios</button>
+        <button class="demo-tab" onclick="showDemo('videos')">📹 Video Tutorials</button>
+        <button class="demo-tab" onclick="showDemo('quickstart')">💻 Quick Start</button>
+    </div>
+
+    <!-- Live Sandbox Tab -->
+    <div id="sandbox" class="demo-content active">
+        <div class="sandbox-container">
+            <h2 style="color: #004E98; text-align: center; margin-bottom: 30px;">Kruize UI Sandbox</h2>
+
+            <!-- Kruize UI Demo Video -->
+            <div style="background: white; padding: 30px; border-radius: 10px;">
+                <p style="text-align: center; margin-bottom: 20px; color: #555; font-size: 16px;">
+                    Watch a walkthrough of the Kruize UI showing how to create experiments, view recommendations, and optimize your Kubernetes resources
+                </p>
+                <div class="video-container">
+                    <video controls style="position: absolute; top: 0; left: 0; width: 100%; height: 100%;">
+                        <source src="assets/kruize-ui-demo.mp4" type="video/mp4">
+                        Your browser does not support the video tag.
+                    </video>
+                </div>
+                <div style="text-align: center; margin-top: 20px;">
+                    <a href="https://github.com/kruize/kruize-demos/tree/main/monitoring/local_monitoring" target="_blank">
+                        <button class="demo-button">
+                            🚀 Try It Yourself
+                        </button>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Demo Scenarios Tab -->
+    <div id="scenarios" class="demo-content">
+        <div class="sandbox-container">
+            <h2 style="color: #004E98; text-align: center; margin-bottom: 30px;">Real-World Optimization Scenarios</h2>
+
+            <div class="demo-grid">
+                <div class="demo-card">
+                    <h3>🔵 Idle Workload Detection</h3>
+                    <p><strong>Problem:</strong> Container running but consuming minimal resources</p>
+                    <p><strong>Solution:</strong> Kruize identifies idle workloads and suggests significant downscaling</p>
+                    <div class="stats-grid" style="margin-top: 20px;">
+                        <div class="stat-box">
+                            <h4>↓90%</h4>
+                            <p>CPU Request</p>
+                        </div>
+                        <div class="stat-box">
+                            <h4>↓85%</h4>
+                            <p>Memory Request</p>
+                        </div>
+                    </div>
+                    <a href="docs/pages/mydoc/getting_started.html" target="_blank">
+                        <button class="demo-button">View Details →</button>
+                    </a>
+                </div>
+
+                <div class="demo-card">
+                    <h3>🟡 Over-Provisioned Resources</h3>
+                    <p><strong>Problem:</strong> Resources allocated far exceed actual usage</p>
+                    <p><strong>Solution:</strong> Right-size recommendations to reduce waste and costs</p>
+                    <div class="stats-grid" style="margin-top: 20px;">
+                        <div class="stat-box">
+                            <h4>↓60%</h4>
+                            <p>CPU Savings</p>
+                        </div>
+                        <div class="stat-box">
+                            <h4>↓45%</h4>
+                            <p>Memory Savings</p>
+                        </div>
+                    </div>
+                    <a href="docs/pages/mydoc/getting_started.html" target="_blank">
+                        <button class="demo-button">View Details →</button>
+                    </a>
+                </div>
+
+                <div class="demo-card">
+                    <h3>🔴 Under-Provisioned Resources</h3>
+                    <p><strong>Problem:</strong> Containers hitting resource limits causing performance issues</p>
+                    <p><strong>Solution:</strong> Increase allocations to prevent throttling and OOM kills</p>
+                    <div class="stats-grid" style="margin-top: 20px;">
+                        <div class="stat-box">
+                            <h4>↑40%</h4>
+                            <p>CPU Increase</p>
+                        </div>
+                        <div class="stat-box">
+                            <h4>↑35%</h4>
+                            <p>Memory Increase</p>
+                        </div>
+                    </div>
+                    <a href="docs/pages/mydoc/getting_started.html" target="_blank">
+                        <button class="demo-button">View Details →</button>
+                    </a>
+                </div>
+
+                <div class="demo-card">
+                    <h3>🎮 GPU Optimization</h3>
+                    <p><strong>Problem:</strong> Inefficient GPU utilization with expensive accelerators</p>
+                    <p><strong>Solution:</strong> MIG partitioning recommendations for Nvidia GPUs</p>
+                    <div class="stats-grid" style="margin-top: 20px;">
+                        <div class="stat-box">
+                            <h4>3x</h4>
+                            <p>GPU Density</p>
+                        </div>
+                        <div class="stat-box">
+                            <h4>↓65%</h4>
+                            <p>GPU Costs</p>
+                        </div>
+                    </div>
+                    <a href="docs" target="_blank">
+                        <button class="demo-button">View Details →</button>
+                    </a>
+                </div>
+
+                <div class="demo-card">
+                    <h3>📦 Namespace Recommendations</h3>
+                    <p><strong>Problem:</strong> Managing resource quotas across multiple containers</p>
+                    <p><strong>Solution:</strong> Namespace-level CPU limits and memory quotas</p>
+                    <div class="stats-grid" style="margin-top: 20px;">
+                        <div class="stat-box">
+                            <h4>Multi</h4>
+                            <p>Container Support</p>
+                        </div>
+                        <div class="stat-box">
+                            <h4>Auto</h4>
+                            <p>Quota Sync</p>
+                        </div>
+                    </div>
+                    <a href="docs" target="_blank">
+                        <button class="demo-button">View Details →</button>
+                    </a>
+                </div>
+
+                <div class="demo-card">
+                    <h3>📊 Box Plot Analysis</h3>
+                    <p><strong>Problem:</strong> Understanding usage patterns and variance</p>
+                    <p><strong>Solution:</strong> Statistical visualization of resource consumption</p>
+                    <div class="stats-grid" style="margin-top: 20px;">
+                        <div class="stat-box">
+                            <h4>P95</h4>
+                            <p>Percentile Analysis</p>
+                        </div>
+                        <div class="stat-box">
+                            <h4>24/7</h4>
+                            <p>Monitoring</p>
+                        </div>
+                    </div>
+                    <a href="docs" target="_blank">
+                        <button class="demo-button">View Details →</button>
+                    </a>
+                </div>
+
+                <div class="demo-card">
+                    <h3>⚙️ Runtime Recommendations</h3>
+                    <p><strong>Problem:</strong> Optimizing Java runtime parameters for better performance and efficiency</p>
+                    <p><strong>Solution:</strong> Kruize analyzes runtime metrics and suggests optimal JVM settings, heap sizes, and GC configurations</p>
+                    <div class="stats-grid" style="margin-top: 20px;">
+                        <div class="stat-box">
+                            <h4>Java</h4>
+                            <p>JVM Tuning</p>
+                        </div>
+                        <div class="stat-box">
+                            <h4>Auto</h4>
+                            <p>GC Optimization</p>
+                        </div>
+                    </div>
+                    <a href="docs" target="_blank">
+                        <button class="demo-button">View Details →</button>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Video Tutorials Tab -->
+    <div id="videos" class="demo-content">
+        <div class="sandbox-container">
+            <h2 style="color: #004E98; text-align: center; margin-bottom: 30px;">Video Tutorials</h2>
+
+            <div class="demo-grid">
+                <div class="demo-card">
+                    <h3>🎬 Getting Started with Kruize</h3>
+                    <div class="video-container">
+                        <video controls style="position: absolute; top: 0; left: 0; width: 100%; height: 100%;">
+                            <source src="assets/kruize-demo.mp4" type="video/mp4">
+                            Your browser does not support the video tag.
+                        </video>
+                    </div>
+                    <p style="margin-top: 20px;">Learn how to set up Kruize and create your first experiment in under 5 minutes</p>
+                </div>
+
+                <div class="demo-card">
+                    <h3>🎥 Kruize UI Walkthrough</h3>
+                    <div class="video-container">
+                        <video controls style="position: absolute; top: 0; left: 0; width: 100%; height: 100%;">
+                            <source src="assets/kruize-ui-demo.mp4" type="video/mp4">
+                            Your browser does not support the video tag.
+                        </video>
+                    </div>
+                    <p style="margin-top: 20px;">Explore the Kruize UI interface and see how to navigate experiments, view recommendations, and analyze resource optimization</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Quick Start Tab -->
+    <div id="quickstart" class="demo-content">
+        <div class="sandbox-container">
+            <h2 style="color: #004E98; text-align: center; margin-bottom: 30px;">Quick Start Guide</h2>
+
+            <div style="max-width: 900px; margin: 0 auto;">
+                <div class="demo-card">
+                    <h3>🔧 Kruize Operator Demo</h3>
+                    <p>Automate Kruize deployment using the Kubernetes Operator for declarative resource optimization:</p>
+                    <div class="code-block">
+<span style="color: #6A9955;"># Clone the operator repository</span>
+git clone https://github.com/kruize/kruize-operator.git
+cd kruize-operator
+
+<span style="color: #6A9955;"># Install CRDs</span>
+make install
+
+<span style="color: #6A9955;"># Deploy on KIND</span>
+make deploy-kind IMG=&lt;registry&gt;/kruize-operator:tag
+
+<span style="color: #6A9955;"># Create a Kruize instance</span>
+kubectl apply -f config/samples/v1alpha1_kruize.yaml -n monitoring
+                    </div>
+                    <p><strong>What it does:</strong> Uses Custom Resource Definitions (CRDs) to automate Kruize Autotune deployment and provide resource optimization recommendations for Kubernetes workloads</p>
+                    <p><strong>Supports:</strong> Kubernetes v1.23.0+, OpenShift v4.10+</p>
+                    <a href="https://github.com/kruize/kruize-operator" target="_blank">
+                        <button class="demo-button">View Operator Docs →</button>
+                    </a>
+                </div>
+
+                <div class="demo-card" style="margin-top: 30px;">
+                    <h3>⚡ Kruize Optimizer Demo</h3>
+                    <p>Lightweight Quarkus-based microservice with REST APIs for automated configuration and optimization:</p>
+                    <div class="code-block">
+<span style="color: #6A9955;"># Clone the optimizer repository (mvp_demo branch)</span>
+git clone -b mvp_demo https://github.com/kruize/kruize-optimizer.git
+cd kruize-optimizer
+
+<span style="color: #6A9955;"># Run in development mode (enables live coding)</span>
+./mvnw quarkus:dev
+
+<span style="color: #6A9955;"># Or build and run as JAR</span>
+./mvnw package
+java -jar target/quarkus-app/quarkus-run.jar
+
+<span style="color: #6A9955;"># Build native executable in container (no GraalVM required)</span>
+./mvnw package -Dnative -Dquarkus.native.container-build=true
+./target/kruize-optimizer-1.0.0-SNAPSHOT-runner
+                    </div>
+                    <p><strong>What it does:</strong> Tag It | Forget It | Optimize It - Automates experiment creation, profile validation, and health orchestration for hands-off optimization once configured</p>
+                    <p><strong>Features:</strong> Quarkus-based microservice, REST APIs, Kubernetes Client integration, Prometheus monitoring, Scheduler support</p>
+                    <a href="https://github.com/kruize/kruize-optimizer/tree/mvp_demo" target="_blank">
+                        <button class="demo-button">View Optimizer Docs →</button>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <footer class="footer">
+        <div class="footer-left">
+            <img class="kruize-footer" src="assets/kruize-vertical.png" alt="Kruize Logo">
+            <p>Copyright IBM Corp. 2025. All rights reserved.</p>
+            <p>Terms | Privacy Policy</p>
+        </div>
+
+        <div class="footer-center"></div>
+
+        <div class="footer-right">
+            <a href="mailto:team@kruize.com"><u>team@kruize.com</u></a>
+            <div class="social-icons">
+                <a href="https://github.com/kruize/autotune"><img src="assets/github-icon.png" alt="GitHub"></a>
+                <a href="https://join.slack.com/t/kruizeworkspace/shared_invite/zt-2i2bs72qr-mfJU3uqcWXXSUv~O0~rbog"><img src="assets/slack-black.png" alt="Slack"></a>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        function showDemo(demoId) {
+            // Hide all demo contents
+            const contents = document.querySelectorAll('.demo-content');
+            contents.forEach(content => content.classList.remove('active'));
+
+            // Remove active class from all tabs
+            const tabs = document.querySelectorAll('.demo-tab');
+            tabs.forEach(tab => tab.classList.remove('active'));
+
+            // Show selected demo content
+            document.getElementById(demoId).classList.add('active');
+
+            // Add active class to clicked tab
+            event.target.classList.add('active');
+        }
+
+        function loadScenario(scenario) {
+            // Remove active class from all scenario buttons
+            const btns = document.querySelectorAll('.scenario-btn');
+            btns.forEach(btn => btn.classList.remove('active'));
+            event.target.classList.add('active');
+
+            console.log('Scenario selected:', scenario);
+        }
+    </script>
+</body>
+
+</html>
