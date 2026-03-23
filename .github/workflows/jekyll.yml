@@ -45,6 +45,7 @@ jobs:
         run: |
           mkdir -p public
           cp index.html public/
+          cp demos.html public/  # Copy demos page to root
           cp style.css public/  # Copy CSS to root
           cp -r assets public/   # Copy assets folder to root
 
