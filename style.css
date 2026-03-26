@@ -109,12 +109,18 @@ body {
     justify-content: center;
 } */
 .hero-image {
-  width: 90%; /* Set the width of the hero section */
-  max-width: 900px; /* Prevent it from becoming too large on wide screens */
-  margin: 40px auto; /* Center the hero section on the page */
-  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1); /* Add a subtle shadow */
-  border-radius: 8px; /* Optional: round the corners */
-  overflow: hidden; /* Ensures the iframe corners are also rounded */
+    width: 90%;
+    /* Set the width of the hero section */
+    max-width: 900px;
+    /* Prevent it from becoming too large on wide screens */
+    margin: 40px auto;
+    /* Center the hero section on the page */
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+    /* Add a subtle shadow */
+    border-radius: 8px;
+    /* Optional: round the corners */
+    overflow: hidden;
+    /* Ensures the iframe corners are also rounded */
 }
 
 .hero-image img {
@@ -134,6 +140,58 @@ body {
     padding: 50px 200px 40px 100px;
     background: white;
 
+}
+
+.features-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 30px;
+    width: 100%;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.feature-card {
+    background: white;
+    padding: 30px;
+    text-align: center;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    border-radius: 10px;
+    transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.feature-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
+}
+
+.feature-icon {
+    font-size: 48px;
+    margin-bottom: 15px;
+}
+
+.feature-card h2 {
+    color: #004E98;
+    font-size: 22px;
+    margin-bottom: 15px;
+}
+
+.feature-card p {
+    color: #333;
+    font-size: 16px;
+    line-height: 1.6;
+}
+
+@media (max-width: 1024px) {
+    .features-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media (max-width: 768px) {
+    .features-grid {
+        grid-template-columns: 1fr;
+    }
 }
 
 .feature-box {
@@ -177,8 +235,10 @@ body {
 }
 
 .feature .img-large {
-    width: 70%;           /* A larger percentage */
-    max-width: 650px;     /* A larger maximum width */
+    width: 70%;
+    /* A larger percentage */
+    max-width: 650px;
+    /* A larger maximum width */
 }
 
 .feature-text {
