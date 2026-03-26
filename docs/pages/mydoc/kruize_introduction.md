@@ -1,7 +1,7 @@
 ---
 title: Kruize Introduction
 sidebar: mydoc_sidebar
-permalink: kruize_introduction.html
+permalink: index.html
 folder: mydoc
 ---
 
