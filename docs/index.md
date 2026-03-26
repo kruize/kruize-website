@@ -2,8 +2,8 @@
 title: "Kruize Autotune"
 keywords: sample homepage
 sidebar: mydoc_sidebar
-permalink: index.html
-summary: These brief instructions will help you get started quickly with the kRUIZE. 
+permalink: kruize_autotune.html
+summary: These brief instructions will help you get started quickly with the kRUIZE.
 ---
 
 ## Overview
@@ -35,6 +35,3 @@ Kruize supports “autotune” mode that addresses complex user defined performa
 
 Kruize Autotune is a PoC only feature. However this has been used by Perf and Scale teams to tune the OS (Node Tuning Operator (NTO) Profiles), Apache Kafka service tuning, by Quarkus to get better performance, and currently ongoing collaboration with EAP as part of a sustainability initiative.
 
-
-
-{% include links.html %}

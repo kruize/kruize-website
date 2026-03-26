@@ -23,10 +23,10 @@ entries:
     output: web, pdf
     folderitems:
 
-    - title: Introduction to Kruize
-      url: /kruize_introduction.html
-      output: web, pdf
-      type: homepage
+#    - title: Introduction to Kruize
+#      url: /index.html
+#      output: web, pdf
+#      type: homepage
 
     - title: Getting Started
       url: /getting_started.html
@@ -40,7 +40,7 @@ entries:
     output: web, pdf
     folderitems:
 
-    - title: Autotune Release Notes
+    - title: Kruize Release Notes
       url: /autotune_release_notes.html
       output: web, pdf
 

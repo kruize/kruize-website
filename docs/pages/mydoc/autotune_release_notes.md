@@ -1,5 +1,5 @@
 ---
-title: Autotune Release Notes
+title: Kruize Release Notes
 sidebar: mydoc_sidebar
 permalink: autotune_release_notes.html
 folder: mydoc

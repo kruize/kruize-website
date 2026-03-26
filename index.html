@@ -28,7 +28,7 @@
     </div>
 
     <div class="community-call">
-        <u>Join our community call to explore more and interact with the Kruize team!</u>
+        <u>Stay tuned for upcoming community calls to explore more and interact with the Kruize team!</u>
     </div>
 
     <div class="hero">
@@ -36,7 +36,7 @@
             <h1>Optimize Your Kubernetes Costs</h1>
             <p>Monitor and reduce your Kubernetes cloud spending with real-time insights.</p>
             <a href="https://github.com/kruize/kruize-demos/tree/main/monitoring/local_monitoring">
-                <button class="cta-button" >Get Started</button>
+                <button class="cta-button">Get Started</button>
             </a>
         </div>
         <div class="hero-image">
@@ -54,45 +54,48 @@
     <div class="features">
         <h1 class="feature-heading">Kruize Features</h1>
 
-        <div class="feature">
-            <img src="assets/recommendations.png" alt="GPU Optimization" class="img-large">
-            <div class="feature-text">
+        <div class="features-grid">
+            <div class="feature-card">
+                <div class="feature-icon">📊</div>
                 <h2>Right-sizing</h2>
                 <p>Kruize can provide right-sizing recommendations for containers and namespaces.
                     Container right sizing includes CPU, Memory and Nvidia Accelerators.
-                    Namespace recommendations are in the form of limits for CPU and quota for memory. </p>
+                    Namespace recommendations are in the form of limits for CPU and quota for memory.</p>
             </div>
-        </div>
-        <div class="feature">
-            <img src="assets/box_plot.png" alt="Box Plots" class="img-large">
-            <div class="feature-text">
+
+            <div class="feature-card">
+                <div class="feature-icon">📈</div>
                 <h2>Box Plot Recommendation support</h2>
                 <p>Visualize cost distributions with detailed statistical insights.
                     Box Plots provides actual usage summary for the observed duration.</p>
             </div>
-        </div>
-        <div class="feature">
-            <img src="assets/gpu_recommendations.png" alt="Container NSP" >
-            <div class="feature-text">
+
+            <div class="feature-card">
+                <div class="feature-icon">🎮</div>
                 <h2>GPU Recommendations</h2>
                 <p>MIG Partitioning Recommendations are available from Kruize v0.1 onwards</p>
             </div>
-        </div>
-        <div class="feature">
-            <img src="assets/runtimes_recommendations.png" alt="Runtime Recommendations" >
-            <div class="feature-text">
+
+            <div class="feature-card">
+                <div class="feature-icon">⚙️</div>
                 <h2>Runtime Recommendations</h2>
-                <p>Kruize analyzes runtime metrics and provides optimal JVM settings, heap sizes, and GC configurations to improve Java application performance and efficiency.
-                </p>
+                <p>Kruize analyzes runtime metrics and provides optimal JVM settings, heap sizes, and GC configurations
+                    to improve Java application performance and efficiency.</p>
             </div>
-        </div>
-        <div class="feature">
-            <img src="assets/vpa_img.png" alt="Vertical Pod Autoscaler">
-            <div class="feature-text">
+
+            <div class="feature-card">
+                <div class="feature-icon">🔄</div>
                 <h2>Vertical Pod Autoscaler</h2>
                 <p>Kruize uses VPA under the covers to apply CPU and memory right sizing recommendations.
-                    Kruize supports two modes “auto” and “recreate” that correspond to the modes of VPA with the same
+                    Kruize supports two modes "auto" and "recreate" that correspond to the modes of VPA with the same
                     names.</p>
+            </div>
+
+            <div class="feature-card">
+                <div class="feature-icon">🎯</div>
+                <h2>Kruize Operator</h2>
+                <p>Kubernetes operator that automates the deployment and management of Kruize components, simplifying
+                    installation and ensuring seamless integration with your cluster.</p>
             </div>
         </div>
     </div>
@@ -117,10 +120,11 @@
 
 
     <div class="getting-started-wrapper">
-        <h2 style="text-align:center;">Get Up and Running in 5 Minutes</h2>
+        <h2 style="text-align:center;">Deploy and Start Optimizing in 5 Minutes</h2>
 
         <div class="getting-started">
-            <a href="https://github.com/kruize/kruize-demos/blob/main/monitoring/local_monitoring/ReadMe.md" style="text-decoration:none;">
+            <a href="https://github.com/kruize/kruize-demos/blob/main/monitoring/local_monitoring/ReadMe.md"
+                style="text-decoration:none;">
                 <div class="step-box">Getting Started With Kruize</div>
             </a>
         </div>
@@ -134,7 +138,7 @@
             <p>Copyright IBM Corp. 2025. All rights reserved.</p>
             <p>Terms | Privacy Policy</p>
         </div>
-        
+
         <!-- Center Section -->
         <div class="footer-center">
 
@@ -145,7 +149,8 @@
             <a href="mailto:team@kruize.com"><u>team@kruize.com</u></a>
             <div class="social-icons">
                 <a href="https://github.com/kruize/autotune"><img src="assets/github-icon.png" alt="GitHub"></a>
-                <a href="https://join.slack.com/t/kruizeworkspace/shared_invite/zt-2i2bs72qr-mfJU3uqcWXXSUv~O0~rbog"><img src="assets/slack-black.png" alt="Slack"></a>
+                <a href="https://join.slack.com/t/kruizeworkspace/shared_invite/zt-2i2bs72qr-mfJU3uqcWXXSUv~O0~rbog"><img
+                        src="assets/slack-black.png" alt="Slack"></a>
             </div>
         </div>
     </footer>
